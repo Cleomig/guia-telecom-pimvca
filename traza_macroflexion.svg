@@ -30,3 +30,4 @@
 <line x1="340.0" y1="138.0" x2="340.0" y2="255.0" stroke="#c62828" stroke-dasharray="4 3"/><text x="350.0" y="150.0" font-size="10.5" fill="#b71c1c" text-anchor="start">pérdida por macroflexión</text>
 <text x="120.0" y="235.0" font-size="10.5" fill="#455a64">no hay referencia de empalme: la fibra quedó apretada o con curva cerrada</text>
 <text x="120.0" y="250.0" font-size="10.5" fill="#455a64">aparece MÁS fuerte en 1550 nm que en 1310 nm (clave del diagnóstico)</text>
+</svg>
