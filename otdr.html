@@ -29,6 +29,9 @@ tr:nth-child(even) td { background: #f4f6f9; }
 .alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
 .footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
 #mapa { height: 460px; border-radius: 8px; border: 1px solid #cfd8dc; margin: 14px 0; z-index: 0; }
 .leyenda { font-size: .88rem; margin: 10px 0; }
@@ -43,7 +46,9 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </head>
 <body>
 <div class="wrap">
-<header class="hero" style="background: linear-gradient(135deg, #00695c 0%, #1565c0 100%);">
+<nav class="navsitio">
+  <a href="index.html">📡 Guía</a><a href="otdr.html">🔬 OTDR</a><a href="microondas.html">📶 Microondas</a><a href="seguridad-nfpa70e.html">🛡️ Seguridad</a><a href="mapa.html">🗺️ Mapa</a><a href="infraestructura.html">📘 Energía</a>
+</nav><header class="hero" style="background: linear-gradient(135deg, #00695c 0%, #1565c0 100%);">
   <h1>🔬 Guía completa de OTDR</h1>
   <p>Manipulación, medición e interpretación de trazas — complemento de la PARTE 3.1</p>
   <div class="btns">
@@ -59,6 +64,11 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <h2>1. ¿Qué es el OTDR y para qué sirve?</h2>
 <p>El OTDR inyecta pulsos de luz por la fibra y mide la luz que vuelve por <strong>dispersión de Rayleigh</strong> y por los <strong>reflejos</strong> de los conectores y empalmes. Con eso construye una <em>traza</em>: un gráfico de potencia (dB) versus distancia (km) que muestra dónde está cada evento y cuánta pérdida produce.</p>
 <p>Sirve para: localizar cortes y empalmes, medir la atenuación del tramo (dB/km), detectar conectores sucios o mal emparejados, verificar la longitud del enlace y archivar una <em>línea base</em> para comparaciones futuras.</p>
+
+<figure>
+<img src="imgs/otdr_yokogawa.jpg" alt="OTDR portátil Yokogawa AQ7270 con pantalla y teclado">
+<figcaption>OTDR portátil (Yokogawa AQ7270): el equipo con el que se capturan las trazas en campo. Imagen: Electron — Wikimedia Commons (CC BY 3.0).</figcaption>
+</figure>
 
 <h2>2. Manipulación correcta del equipo y de la fibra</h2>
 <ul>
@@ -92,6 +102,11 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Compare con los criterios de aceptación</strong> y con la línea base anterior.</li>
 </ol>
 
+<figure>
+<img src="imgs/otdr_esquema.png" alt="Esquema de principio de un OTDR: emisor, acoplador óptico, muestreador y detector">
+<figcaption>Principio del OTDR: emisor + acoplador óptico + detección de la retrodispersión (Rayleigh). Imagen: IP user 92,88,82,226 — Wikimedia Commons (CC BY-SA 4.0).</figcaption>
+</figure>
+
 <h2>4. Cómo leer la traza</h2>
 <ul>
 <li><strong>Pendiente recta</strong> (dB/km): es la atenuación natural de la fibra; la pendiente sube con la distancia.</li>
@@ -100,6 +115,11 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Zona muerta de arranque</strong>: los primeros metros donde el detector está saturado; por eso se usa la bobina de lanzamiento.</li>
 <li><strong>Cola del Rayleigh / ruido</strong>: cuando la traza se vuelve irregular al final, la fibra terminó (o hay un corte).</li>
 </ul>
+
+<figure>
+<img src="imgs/otdr_traza_real.jpg" alt="Traza real de OTDR con eventos analizados en la pantalla del equipo">
+<figcaption>Traza real con eventos analizados en equipo de campo. Imagen: OLC Fiber — Wikimedia Commons (CC BY 2.0).</figcaption>
+</figure>
 
 <h2>5. Longitud de onda: ¿cuál usar?</h2>
 <table>
@@ -154,6 +174,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><a target="_blank" rel="noopener" href="https://www.thefiber.org">The FOA — Fiber Optic Association (referencia en inglés)</a></li>
 <li>Vuelva a la <a href="index.html">guía principal de telecomunicaciones</a> (PARTE 3.1 y PARTE 9).</li>
 </ul>
+<h2>Créditos de imágenes</h2>
+<table>
+<tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
+<tr><td>otdr_yokogawa.jpg</td><td>Electron — Wikimedia Commons</td><td>CC BY 3.0</td></tr>
+<tr><td>otdr_esquema.png</td><td>IP user 92,88,82,226 — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>otdr_traza_real.jpg</td><td>OLC Fiber — Wikimedia Commons</td><td>CC BY 2.0</td></tr>
+</table>
+
 </main>
 <footer class="footer">
   PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026

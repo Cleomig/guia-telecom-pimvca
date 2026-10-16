@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguridad electrica NFPA 70E y LOTO - PIMVCA</title>
+<meta name="description" content="Seguridad electrica en campo: peligros de arco y choque, categorias de arco, EPP, procedimiento LOTO, radiobasis y emergencias, basado en NFPA 70E.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.55rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 32px !important; }
+h2 { font-size: 1.16rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.03rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+figure { margin: 18px auto; text-align: center; }
+figure img { max-width: 100%; height: auto; border: 1px solid #cfd8dc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.14); }
+figcaption { font-size: .82rem; color: #607d8b; font-style: italic; margin-top: 7px; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.28rem; } h2 { font-size: 1.06rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="navsitio">
+  <a href="index.html">&#128225; Gu&#237;a</a><a href="otdr.html">&#128301; OTDR</a><a href="microondas.html">&#128246; Microondas</a><a href="seguridad-nfpa70e.html">&#128737;&#65039; Seguridad</a><a href="mapa.html">&#128506; Mapa</a><a href="infraestructura.html">&#128215; Energ&#237;a</a>
+</nav>
+<header class="hero" style="background: linear-gradient(135deg, #b71c1c 0%, #ef6c00 100%);">
+  <h1>🛡️ Seguridad eléctrica (NFPA 70E)</h1>
+  <p>Arco eléctrico, LOTO, EPP y riesgos en radiobases — complemento de campo</p>
+  <div class="btns">
+    <a class="btn" href="index.html">&#8592; Guía de telecomunicaciones</a>
+    <a class="btn" href="Guia_Telecomunicaciones_PIMVCA.pdf" download>&#128229; PDF</a>
+  </div>
+</header>
+<main>
+
+<h1>🛡️ Seguridad eléctrica: NFPA 70E y LOTO en campo</h1>
+<p>Complemento de las secciones de seguridad de las guías de PIMVCA. Este resumen cubre los conceptos prácticos de la <strong>NFPA 70E</strong> (Seguridad Eléctrica en el Lugar de Trabajo) aplicados a radiobases, subestaciones y tableros.</p>
+
+<figure>
+<img src="imgs/peligro_electrico.png" alt="Símbolo de peligro eléctrico" style="max-width:180px">
+<figcaption>Peligro eléctrico: el símbolo que precede a todo trabajo en tableros. Símbolo NMC — Wikimedia Commons (CC0).</figcaption>
+</figure>
+
+<h2>1. Los cinco principios de oro</h2>
+<ol>
+<li>Trate <strong>toda</strong> instalación como energizada hasta que demuestre lo contrario.</li>
+<li>Defina el <strong>área de trabajo</strong> antes de tocar algo.</li>
+<li>Evalúe riesgo de arco y choque con un <strong>análisis documentado</strong>.</li>
+<li>Retire la energía y <strong>bloquee/etiquete</strong> (LOTO) antes de intervenir.</li>
+<li>Verifique la <strong>ausencia de tensión</strong> con equipo probado antes y después de usarlo.</li>
+</ol>
+
+<h2>2. Peligros: corriente, arco y energía almacenada</h2>
+<ul>
+<li><strong>Choque eléctrico:</strong> 1 mA se percibe · 10 mA no se puede soltar el conductor · 100 mA puede causar fibrilación ventricular (ritmo inexistente = paro).</li>
+<li><strong>Arco eléctrico:</strong> la falla produce hasta 20.000 °C (4× la superficie del Sol), onda de presión y metal fundido. El riesgo se mide en <strong>cal/cm²</strong>.</li>
+<li><strong>Energía almacenada:</strong> baterías de -48 V (cortocircuito de miles de amperios), capacitores de UPS, presión diésel del generador, gas refrigerante de climatización.</li>
+<li><strong>Radiofrecuencia:</strong> zonas de exclusión en torres activas; use medidor de potencia antes de acercarse a antenas en servicio.</li>
+</ul>
+
+<figure>
+<img src="imgs/peligro_arco.png" alt="Señal ISO 7010 de peligro de arco eléctrico" style="max-width:180px">
+<figcaption>Peligro de arco eléctrico (ISO 7010 W042): exige EPP de categoría según la energía incidente calculada. Símbolo CC0 — Wikimedia Commons.</figcaption>
+</figure>
+
+<h2>3. Categorías de arco eléctrico (energía incidente)</h2>
+<table>
+<tr><th>Categoría</th><th>Energía incidente (cal/cm²)</th><th>EPP mínimo típico</th></tr>
+<tr><td>Cat 0</td><td>&lt; 1,2</td><td>Cara y ojos (gafas), ropa de algodón normal</td></tr>
+<tr><td>Cat 1</td><td>≥ 4</td><td>Cara + ojos, guantes de cuero, camisa y pantalón de algodón</td></tr>
+<tr><td>Cat 2</td><td>≥ 8</td><td>Conjunto de arco (cara completa, casco, chamarra + pantalón), guantes</td></tr>
+<tr><td>Cat 3</td><td>≥ 25</td><td>Conjunto de arco completo de mayor categoría, bota dieléctrica</td></tr>
+<tr><td>Cat 4</td><td>≥ 40</td><td>Conjunto completo de Cat 4 + capucha + protección respiratoria según caso</td></tr>
+</table>
+<div class="nota">Los valores reales salen del <strong>cálculo de arco</strong> (método IEEE 1584 / NFPA 70E). Si no hay cálculo, aplique el análisis conservador del procedimiento aprobado de la empresa.</div>
+
+<h2>4. LOTO: bloqueo y etiquetado (6 pasos)</h2>
+<figure>
+<img src="imgs/loto_tablero.jpg" alt="Puerta de tablero eléctrico con enllavamiento con llave atrapada">
+<figcaption>Tablero aislado con enllavamiento: sin la llave, el acceso queda bloqueado y documentado. Imagen: Wtshymanski — Wikimedia Commons (CC BY-SA 4.0).</figcaption>
+</figure>
+<ol>
+<li><strong>Preparar:</strong> identifique fuentes (red, planta, UPS, baterías, derivaciones) y el procedimiento aprobado.</li>
+<li><strong>Notificar:</strong> avise a afectados que la energía se desconectará; obtenga el permiso de trabajo.</li>
+<li><strong>Desconectar:</strong> corte <strong>todas</strong> las fuentes — incluidas secundarias de CT/PT, auxiliares y aislamiento de baterías.</li>
+<li><strong>Bloquear y etiquetar:</strong> candado personal de cada técnico + etiqueta con nombre, fecha y motivo.</li>
+<li><strong>Disipar:</strong> descargue capacitores, relie el sistema (puesta a tierra temporal si aplica) y espere los tiempos del equipo.</li>
+<li><strong>Verificar:</strong> compruebe ausencia de tensión con probador <strong>probado antes y después</strong> en una fuente conocida.</li>
+</ol>
+
+<h2>5. EPP y verificación de ausencia de tensión</h2>
+<figure>
+<img src="imgs/guantes_aislantes.jpg" alt="Guante de aislamiento eléctrico azul con su forro de cuero protector">
+<figcaption>Guante dieléctrico con protector externo de cuero: verifique fecha y presión de aire (prueba anual) antes de usarlo. Imagen: Thomei08 — Wikimedia Commons (dominio público).</figcaption>
+</figure>
+<ul>
+<li><strong>EPP básico:</strong> gafas con protección lateral, casco (torre/tablero), ropa sin partes metálicas expuestas, calzado aislante.</li>
+<li><strong>Guantes clase 00 / 0 / 1 / 2</strong> según tensión; siempre con <strong>forro de cuero</strong> por encima.</li>
+<li><strong>Prueba de ausencia de tensión (3 pasos):</strong> ① pruebe el probador en una fuente viva conocida; ② verifique el punto sin tensión; ③ vuelva a probar el probador. Siempre — un probador muerto se parece a un sistema seguro.</li>
+<li>Herramientas aisladas y vivoscopio para derivaciones; nunca use el cuerpo como tierra.</li>
+</ul>
+
+<h2>6. Riesgos específicos en radiobases</h2>
+<table>
+<tr><th>Riesgo</th><th>Control recomendado</th></tr>
+<tr><td>Altura (torre, góndola)</td><td>ARN completo, doble anclaje, zona de caída libre, herramienta amarrada</td></tr>
+<tr><td>Radiofrecuencia (RRU antenas)</td><td>Medir potencia con medidor/calibrador; respetar límites de exposición (ZBE); RF OFF autorizado</td></tr>
+<tr><td>Baterías -48 V</td><td>Sin anillos y relojes, herramienta aislada, cinta sobre bornes, precaución de H₂ (ventilación)</td></tr>
+<tr><td>Climatización</td><td>Presión de refrigerante, bloqueo del compresor, no abrir circuitos sin evacuar</td></tr>
+<tr><td>Generador diésel</td><td>Bloqueo mecánico, temperatura alta y combustible: zona caliente, gases de escape</td></tr>
+</table>
+
+<h2>7. Emergencias</h2>
+<div class="alerta"><strong>⚠ Regla de vida:</strong> si encuentra a una persona en contacto con tensión, <strong>NO la toque</strong>: corte la fuente o sepárela con material aislado. Luego llame al 171/168 y atienda — quemaduras: cubrir con apósito limpio (no hielo ni pasta dental), no reventar ampollas.</div>
+
+<h2>8. Checklist previo al trabajo (permiso)</h2>
+<ol>
+<li>Permiso de trabajo firmado y análisis de riesgo (arco + choque) revisado.</li>
+<li>EPP de la categoría correcta, inspeccionado (guantes sin roturas, probados por fecha).</li>
+<li>Plan de reversión y respaldos de configuración listos.</li>
+<li>Fuentes identificadas; LOTO aplicado y verificado; probador probado antes/después.</li>
+<li>Primeros auxilios y ruta de acceso conocidos; acompañante y comunicación activa.</li>
+<li>Fotos antes/después y evidencias en el ticket.</li>
+</ol>
+
+<h2>9. Enlaces para seguir</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.osha.gov/electrical">OSHA — Seguridad eléctrica (inglés)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nfpa.org/for-professionals/electrical/standard-development-process-articles/nfpa-70e">NFPA — NFPA 70E (referencia oficial)</a></li>
+<li><a target="_blank" rel="noopener" href="https://cleomig.github.io/guia-telecom-pimvca/infraestructura.html">Guía de Infraestructura Crítica — PARTE 1.7</a></li>
+</ul>
+
+<h2>10. Créditos de imágenes</h2>
+<table>
+<tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
+<tr><td>peligro_electrico.png</td><td>Bigguy637 — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>peligro_arco.png (ISO 7010 W042)</td><td>Autor del símbolo — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>loto_tablero.jpg</td><td>Wtshymanski — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>guantes_aislantes.jpg</td><td>Thomei08 — Wikimedia Commons</td><td>Dominio público</td></tr>
+</table>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>

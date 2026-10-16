@@ -29,6 +29,9 @@ tr:nth-child(even) td { background: #f4f6f9; }
 .alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
 .footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
 #mapa { height: 460px; border-radius: 8px; border: 1px solid #cfd8dc; margin: 14px 0; z-index: 0; }
 .leyenda { font-size: .88rem; margin: 10px 0; }
@@ -43,7 +46,9 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </head>
 <body>
 <div class="wrap">
-<header class="hero" style="background: linear-gradient(135deg, #1565c0 0%, #ef6c00 100%);">
+<nav class="navsitio">
+  <a href="index.html">📡 Guía</a><a href="otdr.html">🔬 OTDR</a><a href="microondas.html">📶 Microondas</a><a href="seguridad-nfpa70e.html">🛡️ Seguridad</a><a href="mapa.html">🗺️ Mapa</a><a href="infraestructura.html">📘 Energía</a>
+</nav><header class="hero" style="background: linear-gradient(135deg, #1565c0 0%, #ef6c00 100%);">
   <h1>🗺️ Ciudad Guayana — Operadores y centrales</h1>
   <p>Puerto Ordaz y San Félix · Estado Bolívar · datos de OpenStreetMap</p>
   <div class="btns">
@@ -55,6 +60,11 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 
 <h1>🗺️ Centrales y operadores de telecomunicaciones en Ciudad Guayana</h1>
 <p>Mapa interactivo de los puntos de referencia <strong>públicos</strong> de los principales operadores en <strong>Ciudad Guayana (Puerto Ordaz y San Félix), Estado Bolívar</strong>: oficinas y centros de atención de CANTV, Movistar y Digitel, tomados de OpenStreetMap.</p>
+<figure>
+<img src="imgs/torre_guayana.jpg" alt="Calle de Puerto Ordaz, Ciudad Guayana, con un edificio que lleva una antena de comunicaciones">
+<figcaption>Puerto Ordaz (Ciudad Guayana): ejemplo de emplazamiento urbano con antena sobre edificio. Imagen: Wguayana — Wikimedia Commons (CC0).</figcaption>
+</figure>
+
 
 <div class="leyenda">
   <strong>Leyenda:</strong>
@@ -104,6 +114,13 @@ puntos.forEach(function(p) {
 <li>En incidentes regionales, use estos puntos como referencia para coordinar con el operador.</li>
 <li>Abra este mapa desde el celular: funciona con GPS y le muestra su posición respecto a los puntos.</li>
 </ul>
+<h2>Créditos de imágenes y datos</h2>
+<table>
+<tr><th>Elemento</th><th>Autor / fuente</th><th>Licencia</th></tr>
+<tr><td>torre_guayana.jpg</td><td>Wguayana — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>Puntos del mapa</td><td>OpenStreetMap vía Nominatim</td><td>ODbL</td></tr>
+</table>
+
 </main>
 <footer class="footer">
   PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026

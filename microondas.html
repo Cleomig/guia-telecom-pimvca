@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enlaces de microondas - Teoria y practica - PIMVCA</title>
+<meta name="description" content="Guia de enlaces de microondas: componentes, bandas, linea de vista, zona de Fresnel, presupuesto de enlace, alineacion y mantenimiento.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.55rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 32px !important; }
+h2 { font-size: 1.16rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.03rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+figure { margin: 18px auto; text-align: center; }
+figure img { max-width: 100%; height: auto; border: 1px solid #cfd8dc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.14); }
+figcaption { font-size: .82rem; color: #607d8b; font-style: italic; margin-top: 7px; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.28rem; } h2 { font-size: 1.06rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="navsitio">
+  <a href="index.html">&#128225; Gu&#237;a</a><a href="otdr.html">&#128301; OTDR</a><a href="microondas.html">&#128246; Microondas</a><a href="seguridad-nfpa70e.html">&#128737;&#65039; Seguridad</a><a href="mapa.html">&#128506; Mapa</a><a href="infraestructura.html">&#128215; Energ&#237;a</a>
+</nav>
+<header class="hero" style="background: linear-gradient(135deg, #00838f 0%, #1565c0 100%);">
+  <h1>📶 Enlaces de microondas</h1>
+  <p>Teoría y práctica de campo — complemento de la PARTE 3.2</p>
+  <div class="btns">
+    <a class="btn" href="index.html">&#8592; Guía de telecomunicaciones</a>
+    <a class="btn" href="Guia_Telecomunicaciones_PIMVCA.pdf" download>&#128229; PDF</a>
+  </div>
+</header>
+<main>
+
+<h1>📶 Enlaces de microondas: teoría y práctica de campo</h1>
+<p>Complemento de la <strong>PARTE 3.2</strong> de la Guía de Telecomunicaciones. El microondas es la columna vertebral de la transmisión cuando no hay fibra disponible: enlaces punto a punto que transportan el tráfico de una radiobase a la central.</p>
+
+<figure>
+<img src="imgs/micro_torre.jpg" alt="Torre de telecomunicaciones con varias antenas parabólicas de microondas y refugio de equipos al pie">
+<figcaption>Torre con enlaces de microondas: antenas parabólicas apuntando a distintos nodos y refugio de equipos a los pies. Imagen: Pelajanela — Wikimedia Commons (CC BY-SA 4.0).</figcaption>
+</figure>
+
+<h2>1. ¿Qué es un enlace de microondas?</h2>
+<p>Es un enlace <strong>de radio de banda milimétrica</strong> (típicamente 1 — 80 GHz) entre dos antenas con <strong>línea de vista</strong>. A diferencia de la fibra, no requiere excavar ni tender cable entre puntos: se instala en torres o edificios y se alinea; a cambio, es sensible a la lluvia, a la obstrucción y a la alineación.</p>
+<ul>
+<li><strong>Transporta:</strong> tráfico 2G/3G/4G/5G (backhaul), enlaces corporativos, respaldo de fibra.</li>
+<li><strong>Distancias típicas:</strong> 0,5 — 50 km según banda, potencia y altura de antenas.</li>
+<li><strong>Disponibilidad objetivo:</strong> 99,999 % en enlaces troncales (≈ 5 min de caída al año).</li>
+</ul>
+
+<h2>2. Componentes del enlace</h2>
+<ul>
+<li><strong>IDU</strong> (unidad interior): rack con tarjetas que modulan/demodulan y entregan E1/FE/GE al equipo de red.</li>
+<li><strong>ODU</strong> (unidad exterior): transceptor montado detrás de la antena; convierte la señal a la frecuencia de trabajo.</li>
+<li><strong>Antena:</strong> parabólica (alta ganancia, estrecha) o sectorial/horn (para corta distancia y sectores múltiples).</li>
+<li><strong>Guía de ondas o coax:</strong> lleva la señal entre ODU y antena; en bandas altas casi siempre guía de ondas.</li>
+<li><strong>GPS/sincronización:</strong> disciplina la frecuencia para modulaciones altas (256QAM) y TDD.</li>
+<li><strong>Atenuadores:</strong> si el enlace es muy corto, evitan saturar el receptor.</li>
+</ul>
+
+<h2>3. Bandas de trabajo</h2>
+<table>
+<tr><th>Banda (GHz)</th><th>Distancia típica</th><th>Características</th></tr>
+<tr><td>7 / 8 / 10 / 11 / 13 / 15</td><td>10 — 50 km</td><td>Troncal de larga distancia; menos lluvia, antenas grandes</td></tr>
+<tr><td>18 / 23</td><td>3 — 25 km</td><td>Versátil, muy usada en backhaul celular</td></tr>
+<tr><td>26 / 28 / 32</td><td>1 — 15 km</td><td>Alta capacidad sobre cortas distancias</td></tr>
+<tr><td>38 / 40 / 70 / 80</td><td>0,3 — 5 km</td><td>Gigabit en metro; muy sensible a lluvia (rain fade)</td></tr>
+</table>
+<div class="nota">Regla práctica: <strong>cuanto mayor la frecuencia, menor la distancia y mayor la sensibilidad a la lluvia</strong>; mayor el ancho de canal y la modulación, mayor la capacidad — y menor el margen de enlace.</div>
+
+<h2>4. Línea de vista y zona de Fresnel</h2>
+<figure>
+<img src="imgs/fresnel_zonas.png" alt="Diagrama de zonas de Fresnel alrededor de la línea de vista entre dos antenas">
+<figcaption>Zonas de Fresnel: la elipse alrededor de la línea de vista debe quedar mayormente libre de obstáculos. Imagen: Popocatomar — Wikimedia Commons (CC BY-SA 4.0).</figcaption>
+</figure>
+<ul>
+<li><strong>Distancia radioeléctrica (k = 4/3):</strong> d (km) ≈ 4,12 · (√h₁ + √h₂) con alturas en metros. Ejemplo: dos antenas a 25 m → d ≈ 41 km teóricos.</li>
+<li><strong>Radio de la 1.ª zona de Fresnel:</strong> r₁ (m) = 17,32 · √(d km / f GHz). Se recomienda <strong>libre al menos el 60 %</strong> de r₁.</li>
+<li>Obstáculos dentro de la elipse causan difracción y pérdida de margen aunque "se vea" la antena.</li>
+</ul>
+<figure>
+<img src="imgs/fresnel_roto.png" alt="Zona de Fresnel interrumpida por un obstáculo entre las dos antenas">
+<figcaption>Cuando un obstáculo invade la elipse, el enlace se degrada aunque exista visión directa. Imagen: Konrad Roeder — Wikimedia Commons (CC BY 2.5).</figcaption>
+</figure>
+
+<h2>5. Presupuesto de enlace y disponibilidad</h2>
+<ol>
+<li><strong>Pérdida en espacio libre:</strong> FSLoS (dB) = 32,45 + 20·log(d km) + 20·log(f GHz).</li>
+<li><strong>Ganancias:</strong> sume la ganancia de antena (+) y reste pérdidas de guía de ondas, conectores y lluvia.</li>
+<li><strong>Margen de enlace:</strong> nivel recibido − sensibilidad del receptor; debe superar el <strong>margen de desvanecimiento</strong> de la zona (lluvia, humedad, reflejos). En el Caribe usar estudios de lluvia locales (ITU-R P.837).</li>
+<li><strong>Disponibilidad:</strong> cada margen dB adicional compra "minutos de caída" por año; el operador fija el objetivo (99,99 % — 99,999 %).</li>
+</ol>
+
+<h2>6. Polarización, modulación y capacidad</h2>
+<ul>
+<li><strong>Polarización horizontal/vertical</strong> (y a veces ±45° cruzadas): el ajuste fino de la polarización ganará 1 — 3 dB.</li>
+<li><strong>Modulación adaptativa (ACM):</strong> el equipo baja de 256QAM a QPSK cuando llueve o degrada el enlace; la capacidad cae pero el enlace se mantiene vivo (clave para no perder el servicio).</li>
+<li><strong>Ancho de canal:</strong> 7 — 56 MHz; más ancho = más Mbps y más exigencia de margen.</li>
+</ul>
+
+<h2>7. Alineación de antenas (paso a paso)</h2>
+<ol>
+<li>Verifique <strong>orden de trabajo, zona y riesgo de altura</strong>; arnés y herramienta amarrada.</li>
+<li>Revise el nivel de referencia en el sintonizador con la antena en su posición actual.</li>
+<li>Deje al compañero acomodar la alineación gruesa (punta de martillo/direccional) en azimut y elevación según los ángulos del diseño.</li>
+<li>Ajuste <strong>azimut</strong> buscando el máximo de nivel Rx; luego <strong>elevación</strong>; repita.</li>
+<li>Ajuste <strong>polarización</strong> con el giro de la antena hasta el máximo.</li>
+<li>Estabilice: no mueva nada; verifique con la tabla de niveles <strong>±1 dB</strong> del diseño y confirme VSWR.</li>
+<li>Fije tuercas con par (llave dinamométrica) y deje <strong>marcas de alineación</strong> (pintura) en soporte y antena.</li>
+<li>Guarde la captura del sintonizador y las mediciones en el ticket.</li>
+</ol>
+
+<h2>8. Mantenimiento de campo (checklist)</h2>
+<ul>
+<li>Inspección visual: reflector limpio (barro, excremento de ave, vegetación), sin abolladuras.</li>
+<li>Tornillería con par y sellada; sin holguras ni vibración en góndola o soporte.</li>
+<li>Guía de ondas sin deformaciones; conectores firmes; atenuador (si existe) en su lugar.</li>
+<li>Niveles y VSWR dentro de la línea base; alarmas del ODU/IDU revisadas.</li>
+<li>Sin reflejos parásitos: verifique que no haya otro enlace apuntando a su antena.</li>
+<li>Protecciones contra rayos y puesta a tierra conformes.</li>
+<li>Fotos antes/después y estado del ticket.</li>
+</ul>
+
+<h2>9. Errores comunes</h2>
+<ul>
+<li>Alinear "por parejo" en vez de buscar el máximo de nivel con el sintonizador.</li>
+<li>No marcar ni apretar con par → la antena se mueve con viento o calor.</li>
+<li>Ignorar el margen de lluvia en bandas de 38 GHz y armar un enlace que cae en temporada de lluvias.</li>
+<li>Confundir el nivel de potencia con la calidad: mirar solo Rx sin mirar C/N, errores y modulación.</li>
+<li>Olvidar la zona de Fresnel: "hay vista" pero el árbol invita la elipse y el margen desaparece.</li>
+</ul>
+
+<h2>10. Enlaces para seguir</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cleomig.github.io/guia-telecom-pimvca/index.html">Guía principal — PARTE 3.2 (teoría y presupuesto)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=enlace+de+microondas+telecomunicaciones">Videos: enlaces de microondas (YouTube)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.itu.int/rec/R-REC-P.837">ITU-R P.837 — lluvia para diseño de enlaces</a></li>
+</ul>
+
+<h2>11. Créditos de imágenes</h2>
+<table>
+<tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
+<tr><td>micro_torre.jpg (torre con parabólicas)</td><td>Pelajanela — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>fresnel_zonas.png</td><td>Popocatomar — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>fresnel_roto.png</td><td>Konrad Roeder — Wikimedia Commons</td><td>CC BY-SA 2.5</td></tr>
+</table>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>
