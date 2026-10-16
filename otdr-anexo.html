@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo OTDR - Los4 patrones clave - PIMVCA</title>
+<meta name="description" content="Anexo del OTDR: pendiente de atenuacion, eventos reflectantes, eventos no reflectantes, zona muerta de arranque y bobina de lanzamiento, con tablas, ejemplos y ejercicios.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.5rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.4rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 30px !important; }
+h2 { font-size: 1.14rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+figure { margin: 18px auto; text-align: center; }
+figure img { max-width: 100%; height: auto; border: 1px solid #cfd8dc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.14); }
+figcaption { font-size: .82rem; color: #607d8b; font-style: italic; margin-top: 7px; }
+details { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+summary { cursor: pointer; font-weight: bold; color: #ef6c00; }
+details p { margin: 8px 0 0; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.25rem; } h2 { font-size: 1.05rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="navsitio">
+  <a href="index.html">📡 Guía</a><a href="otdr.html">🔭 OTDR</a><a href="otdr-anexo.html">🧮 Anexo OTDR</a><a href="microondas.html">📶 Microondas</a><a href="seguridad-nfpa70e.html">🛡️ Seguridad</a><a href="mapa.html">🗺️ Mapa</a><a href="infraestructura.html">📘 Energía</a>
+</nav>
+<header class="hero" style="background: linear-gradient(135deg, #4527a0 0%, #00838f 100%);">
+  <h1>🧮 Anexo OTDR: los 4 patrones clave</h1>
+  <p>Pendiente, reflexiones, escalones y zona muerta de arranque — con cifras y ejercicios</p>
+  <div class="btns">
+    <a class="btn" href="otdr.html">&#8592; Guía OTDR principal</a>
+    <a class="btn" href="index.html">📡 Guía de telecomunicaciones</a>
+  </div>
+</header>
+<main>
+
+<h1>🧮 Anexo OTDR: los 4 patrones clave en profundidad</h1>
+<p>Profundización de la <strong>PARTE 3.1</strong> y de la sección de interpretación de la <a href="otdr.html">guía OTDR principal</a>. Aquí verá con cifras, tablas y ejemplos calculados los cuatro patrones que gobiernan toda traza: <strong>pendiente, eventos reflectantes, eventos no reflectantes y zona muerta de arranque</strong>.</p>
+
+<h2>1. Patrón 1 — Pendiente recta (la atenuación natural)</h2>
+<p>La fibra pierde potencia de forma <strong>proporcional a la distancia</strong>: en la traza eso es una recta descendente. Su pendiente en <code>dB/km</code> es la atenuación real de la fibra en la longitud de onda medida. <strong>La pendiente NO sube con la distancia</strong> (es recta); lo que sube con la distancia es la <em>pérdida acumulada</em>: doble distancia = doble pérdida.</p>
+<figure>
+<img loading="lazy" decoding="async" src="traza_pendiente.svg?v=1" alt="Comparación de dos trazas desde el mismo punto: una con pendiente normal de 0,21 dB/km y otra excesiva de 0,45 dB/km">
+<figcaption>Misma fibra, dos comportamientos: la pendiente excesiva (roja) duplica la pérdida esperada. Esquema de elaboración propia.</figcaption>
+</figure>
+<h3>Valores típicos de atenuación (fibra monomodo G.652)</h3>
+<table>
+<tr><th>Longitud de onda</th><th>Atenuación típica</th><th>Comentario</th></tr>
+<tr><td>850 nm (multimodo)</td><td>2,5 – 3,0 dB/km</td><td>Sólo datacenters/centros</td></tr>
+<tr><td>1310 nm</td><td>0,32 – 0,35 dB/km</td><td>Zona de dispersión cero; buena para medir distancia</td></tr>
+<tr><td>1383 nm</td><td>&lt; 0,35 dB/km (fibra nueva)</td><td>En fibra antigua aparece el «pico de agua» (&gt;1 dB/km)</td></tr>
+<tr><td>1490 nm</td><td>0,22 – 0,25 dB/km</td><td>PON downstream</td></tr>
+<tr><td>1550 nm</td><td><strong>0,19 – 0,21 dB/km</strong></td><td>Mínima atenuación; la más usada en troncales</td></tr>
+<tr><td>1625 / 1650 nm</td><td>0,19 – 0,23 dB/km</td><td>Mantenimiento y OTDR «sin apagar» (OUTDR)</td></tr>
+</table>
+<h3>Ejemplos calculados</h3>
+<ul>
+<li><strong>Ejemplo A (pérdida acumulada):</strong> enlace de 12 km medido a 1550 nm con pendiente 0,21 dB/km → pérdida de fibra = 12 × 0,21 = <strong>2,52 dB</strong>. Si el diseño estima 3 empalmes de 0,08 dB → total ≈ 2,52 + 0,24 = 2,76 dB.</li>
+<li><strong>Ejemplo B (obtener la pendiente de la traza):</strong> a km 3 el nivel es −11,2 dB y a km 13 es −15,7 dB → Δ = 4,5 dB en 10 km → <strong>0,45 dB/km</strong>. Está al DOBLE de lo esperado (0,21) → la traza es sospechosa: revisar instalación (macrobends distribuidos, fibra dañada) o el método (conector sucio no cambia la pendiente; un empalme malo sólo agrega un escalón).</li>
+<li><strong>Ejemplo C (ficha de aceptación):</strong> el criterio de puesta en servicio dice «máx. 0,25 dB/km a 1550 nm». Su medición da 0,23 dB/km → <strong>conforme</strong>; si diera 0,30 → no conforme, no se firma sin revisión.</li>
+</ul>
+
+<h2>2. Patrón 2 — Evento reflectante (pico hacia arriba)</h2>
+<p>Cuando la luz encuentra una <strong> discontinuidad con aire</strong> (conector mal acoplado, suciedad, empalme mecánico, corte con cara reflectiva, fin de fibra) parte de la luz regresa al OTDR: aparece un <strong>pico agudo</strong> (reflexión de Fresnel) seguido de una <strong>pérdida en escalón</strong> y de una <strong>zona muerta de evento</strong> que «ciega» el tramo siguiente.</p>
+<figure>
+<img loading="lazy" decoding="async" src="traza_zona_muerta.svg?v=1" alt="Zoom de un evento reflectante con la zona muerta de atenuación y la zona muerta de evento marcadas">
+<figcaption>Zoom de un evento reflectante: la saturación borra los metros siguientes. Esquema de elaboración propia.</figcaption>
+</figure>
+<h3>Reflectancia típica (qué tan «grande» es el pico)</h3>
+<table>
+<tr><th>Elemento</th><th>Reflectancia típica</th><th>Qué verá en la traza</th></tr>
+<tr><td>Conector PC/UPC limpio</td><td>−40 a −55 dB</td><td>Pico moderado, zona muerta corta</td></tr>
+<tr><td>Conector APC</td><td>−60 a −70 dB</td><td>Pico casi inexistente (el ángulo8° evita la reflexión)</td></tr>
+<tr><td>Conector sucio o con aire</td><td>−10 a −25 dB</td><td>Pico enorme, zona muerta larga</td></tr>
+<tr><td>Empalme mecánico</td><td>−30 a −45 dB</td><td>Pico moderado + pérdida alta</td></tr>
+<tr><td>Empalme por fusión</td><td>&lt; −60 dB (sin pico)</td><td>Sólo escalón</td></tr>
+<tr><td>Final de fibra (cara limpia)</td><td>≈ −12 a −16 dB</td><td>Pico fuerte y luego ruido: confirma el fin</td></tr>
+</table>
+<div class="nota"><strong>Regla de lectura:</strong> pico estrecho y bajo = conector aceptable · pico ancho o gigante = limpie o reconecte antes de culpar al enlace. Después de cada pico grande, los primeros metros NO son medibles (zona muerta de evento).</div>
+
+<h2>3. Patrón 3 — Evento no reflectante (escalón sin pico)</h2>
+<p>Un <strong>escalón descendente sin pico</strong> es una pérdida «oscura»: la luz se pierde sin volver. Los dos culpables típicos son el <strong>empalme por fusión</strong> (intencional, en punto conocido) y la <strong>macroflexión</strong> (curva cerrada o presión, en punto inesperado). ¿Cómo distinguirlos? <strong>Midan a dos longitudes de onda.</strong></p>
+<figure>
+<img loading="lazy" decoding="async" src="traza_dual.svg?v=1" alt="Dos trazas superpuestas en el mismo punto: a1310 nm el escalón es pequeño y a1550 nm es grande, indicando macroflexión">
+<figcaption>Doble longitud de onda: si el escalón crece en 1550 nm, es macroflexión; si se mantiene igual, es empalme. Esquema de elaboración propia.</figcaption>
+</figure>
+<table>
+<tr><th>Criterio</th><th>Empalme por fusión</th><th>Macroflexión</th></tr>
+<tr><td>Forma</td><td>Escalón sin pico</td><td>Escalón sin pico</td></tr>
+<tr><td>Ubicación</td><td>Conocida (coincide con un punto de empalme)</td><td>Inesperada (cualquier punto)</td></tr>
+<tr><td>Pérdida típica</td><td>0,03 – 0,1 dB (bien hecho)</td><td>0,1 – &gt;1 dB según el doblez</td></tr>
+<tr><td>1310 vs 1550 nm</td><td>Casi idéntica en ambas</td><td><strong>Mayor en 1550/1625 nm</strong></td></tr>
+<tr><td>Causa</td><td>Suciedad, desalineación de núcleo, parámetros de fusión</td><td>Radio de curvatura, presión, fibra atrapada en bandeja</td></tr>
+<tr><td>Acción</td><td>Rehacer el empalme</td><td>Revisar bandeja/canalización en ese kilómetro</td></tr>
+</table>
+
+<h2>4. Patrón 4 — Zona muerta de arranque y bobina de lanzamiento</h2>
+<p>Al conectar el OTDR, el propio <strong>acople de arranque satura el detector</strong>: los primeros metros quedan «ciegos». Sin más, el <strong>conector de la cabecera nunca se podría medir</strong>. La solución estándar es insertar una <strong>bobina de lanzamiento</strong> (también llamada <em>dead zone box</em> o fibra de supresión) entre el OTDR y el enlace.</p>
+<figure>
+<img loading="lazy" decoding="async" src="esquema_bobina.svg?v=1" alt="Diagrama: OTDR conectado a una bobina de lanzamiento de500 metros a 1 kilómetro y luego al enlace bajo prueba, con el conector1 ya medible">
+<figcaption>Con bobina de lanzamiento, la saturación cae dentro de la bobina y el conector 1 queda medible. Esquema de elaboración propia.</figcaption>
+</figure>
+<h3>Reglas prácticas de la bobina</h3>
+<ul>
+<li><strong>Longitud:</strong> 500 m a 1 km (mayor que la zona muerta de su OTDR, con margen).</li>
+<li><strong>La bobina debe estar a la misma longitud de onda de trabajo</strong> y en buen estado (una bobina doblada fastidia la medida).</li>
+<li><strong>Procedimiento de sustitución:</strong> conecte OTDR → bobina y mida el acople; luego conecte bobina → enlace. La pérdida del conector 1 se evalúa en la bobina y el enlace se mide limpio de esa zona muerta.</li>
+<li><strong>Pulsos cortos vs largos:</strong> pulsos cortos (3–10 ns) dan zonas muertas pequeñas pero poco alcance; pulsos largos (µs) alcanzan más kilómetros pero «ciegan» más metros. Elija según la longitud del enlace.</li>
+</ul>
+<table>
+<tr><th>Tipo de zona muerta</th><th>Definición</th><th>OTDR moderno típico</th></tr>
+<tr><td>De atenuación</td><td>Distancia para recuperar la medición de nivel (±0,5 dB)</td><td>0,5 – 3 m</td></tr>
+<tr><td>De evento</td><td>Distancia mínima para separar dos eventos</td><td>3 – 15 m (peor con pulsos largos)</td></tr>
+<tr><td>De arranque</td><td>La suma anterior sobre el acople inicial</td><td>Se elimina con la bobina</td></tr>
+</table>
+
+<h2>5. Ejercicios rápidos (pulse para ver la solución)</h2>
+<details>
+<summary>Ejercicio 1 — Obtener la pendiente</summary>
+<p><strong>Pregunta:</strong> en una traza a 1550 nm, el nivel es −12,3 dB a km 5 y −16,3 dB a km 15. ¿Es normal la fibra? ¿Cuál es la pendiente?<br>
+<strong>Solución:</strong> Δ = 4,0 dB en 10 km → <strong>0,40 dB/km</strong>. Es casi el doble de lo esperado (0,21 dB/km): la fibra NO es normal; sospeche macrobends distribuidos, fibra dañada o un error de medida (índice de refracción mal configurado afecta la distancia, no la pendiente).</p>
+</details>
+<details>
+<summary>Ejercicio 2 — Diagnosticar un pico</summary>
+<p><strong>Pregunta:</strong> la traza muestra un pico de conector con 12 m de zona muerta de evento. ¿Qué hace primero?<br>
+<strong>Solución:</strong> esa zona muerta es ancha → el conector está <strong>sucio o con espacio de aire</strong>. Primero: inspeccionar/conectar bien (limpia-conectores y torque); re-medir. Si el pico sigue grande, reemplazar el conector o rehacer el empalme mecánico.</p>
+</details>
+<details>
+<summary>Ejercicio 3 — Empalme o macroflexión</summary>
+<p><strong>Pregunta:</strong> a km 7 aparece un escalón de 0,15 dB a 1310 nm y de 0,52 dB a 1550 nm. ¿Empalme o macroflexión? ¿Dónde actúa?<br>
+<strong>Solución:</strong> el escalón <strong>crece mucho con la longitud de onda</strong> → macroflexión. Acudir a la bandeja/trayecto del km 7 y liberar el doblez o la presión. Si el escalón fuera igual en ambas longitudes de onda, sería empalme.</p>
+</details>
+<details>
+<summary>Ejercicio 4 — Sin bobina no hay dato</summary>
+<p><strong>Pregunta:</strong> quiere certificar el conector de la central con un OTDR de 8 m de zona muerta de evento y sólo tiene un patchcord de3 m. ¿Sirve?<br>
+<strong>Solución:</strong> no: el conector queda dentro de la zona muerta. Necesita una <strong>bobina de lanzamiento ≥ 500 m</strong> (o una caja de zonas muertas) para que la saturación caiga dentro de la bobina y el conector quede medible.</p>
+</details>
+
+<h2>6. Enlaces</h2>
+<ul>
+<li><a href="otdr.html">Guía OTDR principal (manipulación,10 pasos, trazas típicas)</a></li>
+<li><a target="_blank" rel="noopener" href="https://cleomig.github.io/guia-telecom-pimvca/index.html">Guía de telecomunicaciones — PARTE 3.1 (fibra y OTDR)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.thefiber.org">The FOA — referencia internacional de fibra óptica</a></li>
+</ul>
+
+<h2>7. Créditos</h2>
+<p>Todas las figuras de este anexo son <strong>esquemas de elaboración propia</strong> para la guía de PIMVCA (sin licencias de terceros).</p>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>
