@@ -32,6 +32,13 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 .navsitio { background: #263238; padding: 7px 6px; text-align: center; }
 .navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
 .navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
+.ej-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.ejemplo { border: 1px solid #cfd8dc; border-radius: 8px; padding: 12px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.ejemplo img { width: 100%; height: auto; display: block; border: 1px solid #eceff1; border-radius: 4px; background: #fff; }
+.ejemplo h3 { margin: 10px 0 6px; font-size: .98rem; color: #00695c; }
+.ejemplo ul { padding-left: 18px; margin: 4px 0; }
+.ejemplo li { margin: 3px 0; font-size: .88rem; }
+@media (max-width: 640px) { .ej-grid { grid-template-columns: 1fr; } }
 .footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
 #mapa { height: 460px; border-radius: 8px; border: 1px solid #cfd8dc; margin: 14px 0; z-index: 0; }
 .leyenda { font-size: .88rem; margin: 10px 0; }

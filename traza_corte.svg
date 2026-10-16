@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" font-family="Segoe UI, Arial, sans-serif">
+<rect width="620" height="300" fill="#ffffff"/>
+<line x1="70" y1="30" x2="70" y2="255" stroke="#eceff1"/>
+<line x1="176" y1="30" x2="176" y2="255" stroke="#eceff1"/>
+<line x1="282" y1="30" x2="282" y2="255" stroke="#eceff1"/>
+<line x1="388" y1="30" x2="388" y2="255" stroke="#eceff1"/>
+<line x1="494" y1="30" x2="494" y2="255" stroke="#eceff1"/>
+<line x1="600" y1="30" x2="600" y2="255" stroke="#eceff1"/>
+<line x1="70" y1="45" x2="600" y2="45" stroke="#eceff1"/>
+<line x1="70" y1="90" x2="600" y2="90" stroke="#eceff1"/>
+<line x1="70" y1="135" x2="600" y2="135" stroke="#eceff1"/>
+<line x1="70" y1="180" x2="600" y2="180" stroke="#eceff1"/>
+<line x1="70" y1="225" x2="600" y2="225" stroke="#eceff1"/>
+<line x1="70" y1="255" x2="600" y2="255" stroke="#37474f" stroke-width="1.6"/>
+<line x1="70" y1="30" x2="70" y2="255" stroke="#37474f" stroke-width="1.6"/>
+<line x1="70.0" y1="255" x2="70.0" y2="260" stroke="#37474f"/>
+<text x="70.0" y="272" font-size="10" fill="#546e7a" text-anchor="middle">0</text>
+<line x1="187.8" y1="255" x2="187.8" y2="260" stroke="#37474f"/>
+<text x="187.8" y="272" font-size="10" fill="#546e7a" text-anchor="middle">10</text>
+<line x1="305.6" y1="255" x2="305.6" y2="260" stroke="#37474f"/>
+<text x="305.6" y="272" font-size="10" fill="#546e7a" text-anchor="middle">20</text>
+<line x1="423.3" y1="255" x2="423.3" y2="260" stroke="#37474f"/>
+<text x="423.3" y="272" font-size="10" fill="#546e7a" text-anchor="middle">30</text>
+<line x1="541.1" y1="255" x2="541.1" y2="260" stroke="#37474f"/>
+<text x="541.1" y="272" font-size="10" fill="#546e7a" text-anchor="middle">40</text>
+<text x="490" y="285" font-size="11" fill="#546e7a">Distancia (km)</text>
+<text x="18" y="150" font-size="11" fill="#546e7a" transform="rotate(-90 18 150)" text-anchor="middle">Nivel (dB)</text>
+<polyline points="90.0,70.0 300.0,122.0 318.0,250.0" fill="none" stroke="#1565c0" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="318.0,252.4 322.0,252.1 326.0,249.4 330.0,250.7 334.0,248.3 338.0,247.2 342.0,250.5 346.0,244.5 350.0,254.4 354.0,245.0 358.0,256.1 362.0,248.4 366.0,253.3 370.0,252.6 374.0,247.3 378.0,255.1 382.0,242.3 386.0,254.9 390.0,242.0 394.0,252.9 398.0,246.6 402.0,250.7 406.0,252.4 410.0,249.3 414.0,254.9 418.0,249.0 422.0,252.6 426.0,249.3 430.0,248.4 434.0,249.5 438.0,246.6 442.0,249.1 446.0,249.4 450.0,248.1 454.0,254.6 458.0,246.8 462.0,257.6 466.0,246.3 470.0,255.5 474.0,247.4 478.0,249.4 482.0,250.4 486.0,243.7 490.0,254.1 494.0,242.3 498.0,256.2 502.0,245.7 506.0,255.1 510.0,250.5 514.0,251.4 518.0,252.9 522.0,247.7 526.0,251.7 530.0,246.6 534.0,248.8 538.0,248.6 542.0,247.5 546.0,251.4 550.0,249.4 554.0,251.8 558.0,253.2 562.0,248.9 566.0,255.8 570.0,244.7 574.0,255.3 578.0,243.2 582.0,251.9 586.0,246.4 590.0,247.9 594.0,252.7 598.0,245.5" fill="none" stroke="#1565c0" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="309.0" y1="130.0" x2="309.0" y2="255.0" stroke="#c62828" stroke-dasharray="4 3"/><text x="330.0" y="165.0" font-size="10.5" fill="#b71c1c" text-anchor="start">caída abrupta = corte</text>
+<text x="330.0" y="183.0" font-size="10.5" fill="#455a64">sin reflexión: corte limpio</text>
+<text x="330.0" y="200.0" font-size="10.5" fill="#455a64">si hay pico: corte con cara reflectiva</text>
+<text x="330.0" y="217.0" font-size="10.5" fill="#455a64">la distancia del evento = punto del corte</text>
