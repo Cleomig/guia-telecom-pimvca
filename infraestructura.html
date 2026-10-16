@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infraestructura Cr&#237;tica y Energ&#237;a — PIMVCA</title>
+<meta name="description" content="Guia complementaria: infraestructura critica, energia DC -48 V, subestaciones, plantas de emergencia y seguridad electrica para tecnicos de PIMVCA.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.6rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.hero button.btn { background: rgba(255,255,255,.15); color: #fff; border: 1.5px solid #fff; padding: 10px 18px; border-radius: 24px; font-size: .95rem; font-weight: bold; cursor: pointer; }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 34px !important; }
+h2 { font-size: 1.18rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.04rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.prompt-box, blockquote { background: #e8f5e9; border: 1px solid #66bb6a; border-left: 6px solid #2e7d32; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+figure { margin: 18px auto; text-align: center; }
+figure img, img { max-width: 100%; height: auto; border-radius: 6px; }
+figcaption { font-size: .82rem; color: #607d8b; font-style: italic; margin-top: 7px; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.3rem; } h2 { font-size: 1.08rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero" style="background: linear-gradient(135deg, #00695c 0%, #ef6c00 100%);">
+  <h1>&#128214; Infraestructura Cr&#237;tica y Energ&#237;a</h1>
+  <p>Gu&#237;a complementaria — conceptos el&#233;ctricos, subestaciones, plantas y seguridad</p>
+  <div class="btns">
+    <a class="btn" href="Guia_Estudios_Infraestructura_Critica_PIMVCA.pdf" download>&#128229; Descargar PDF</a>
+    <button class="btn" onclick="window.print()">&#128424;&#65039; Imprimir</button>
+    <a class="btn" href="index.html">&#8617;&#65039; Guia de telecomunicaciones</a>
+  </div>
+</header>
+<main id="top">
+
+
+<div class="cover">
+<h1>&#127891; GU&Iacute;A DE ESTUDIOS COMPLETA</h1>
+<h2>Infraestructura Cr&iacute;tica, Energ&iacute;a y Telecomunicaciones</h2>
+<div class="company">PIMVCA &mdash; Proyectos e Inversiones MV Miranda, C.A.<br>pimvca.com.ve</div>
+<div class="date">Octubre 2026 &mdash; Formación Técnica Interna</div>
+</div>
+
+<div class="section">
+<h1>PARTE 1. CONCEPTOS TÉCNICOS FUNDAMENTALES</h1>
+
+<h2>1.1 ¿Qué es la Infraestructura Crítica?</h2>
+<p>Es todo aquel conjunto de equipos e instalaciones cuya <strong>parada inmediata produce pérdidas económicas, riesgos para la seguridad o interrupción del servicio</strong>. En telecomunicaciones: radiobases, centros de datos, salas de conmutación. En energía: subestaciones, plantas de emergencia y sistemas de protección.</p>
+<div class="concept"><strong>Características que la definen:</strong>
+<ul>
+<li><strong>Disponibilidad 24/7/365:</strong> no puede detenerse.</li>
+<li><strong>Redundancia:</strong> componentes duplicados (N+1) para que si uno falla, otro asuma la carga.</li>
+<li><strong>Mantenimiento preventivo y correctivo</strong> documentado con trazabilidad total.</li>
+</ul></div>
+<table>
+<tr><th>Nivel (Uptime Institute)</th><th>Disponibilidad anual</th><th>Tiempo de parada aprox.</th></tr>
+<tr><td>Tier I</td><td>99,671%</td><td>~28,8 horas/año</td></tr>
+<tr><td>Tier II</td><td>99,741%</td><td>~22,7 horas/año</td></tr>
+<tr><td>Tier III</td><td>99,982%</td><td>~1,6 horas/año</td></tr>
+<tr><td>Tier IV</td><td>99,995%</td><td>~26,3 minutos/año</td></tr>
+</table>
+
+<h2>1.2 Conceptos Eléctricos Básicos</h2>
+<ul>
+<li><strong>Voltaje (V):</strong> la "presión" que empuja a los electrones. Se mide en Voltios.</li>
+<li><strong>Corriente (I):</strong> el flujo de electrones. Se mide en Amperios.</li>
+<li><strong>Potencia (P):</strong> la energía consumida. P = V × I. Se mide en Watts.</li>
+<li><strong>Corriente Alterna (CA/AC):</strong> la que llega de la red comercial. Cambia de dirección 50/60 veces por segundo.</li>
+<li><strong>Corriente Continua (CC/DC):</strong> la de las baterías y los equipos electrónicos. Dirección constante.</li>
+<li><strong>Ley de Ohm:</strong> V = I × R. Permite calcular valores con el multímetro.</li>
+<li><strong>Aislamiento:</strong> resistencia entre un conductor y tierra; se mide con megóhmetro. Un valor bajo = riesgo de falla eléctrica.</li>
+<li><strong>Puesta a tierra (Grounding):</strong> canaliza las descargas (rayos, picos) hacia la tierra para proteger equipos y personas.</li>
+</ul>
+
+<h2>1.3 Sistema de Energía DC (-48V) en Telecomunicaciones</h2>
+<div class="concept"><strong>¿Por qué -48V y no otra tensión?</strong>
+<ul>
+<li>Es un estándar internacional en telefonía desde la época de los conmutadores electromecánicos.</li>
+<li>Con el polo positivo a tierra (+48V), se minimiza la <strong>electrólisis por corrosión</strong> de las conexiones en ambientes húmedos.</li>
+<li>Es un voltaje seguro para manipulación bajo condiciones controladas (por debajo de 60V DC).</li>
+</ul></div>
+<h3>Componentes del sistema:</h3>
+<ol>
+<li><strong>Rectificador:</strong> convierte AC (110/220V) a DC (-48V). Es modular: si un módulo falla, los demás siguen trabajando (redundancia N+1).</li>
+<li><strong>Banco de baterías:</strong> respalda la carga cuando se va la red comercial. Tipos: AGM, Gel y LiFePO4 (litio).</li>
+<li><strong>Bus de distribución / Tablero SACC:</strong> distribuye el -48V a los equipos con fusibles o breakers.</li>
+<li><strong>Sistema de monitoreo:</strong> genera alarmas (voltaje bajo, alta temperatura, falla de módulo).</li>
+</ol>
+<div class="warning"><strong>Flujo normal:</strong> Red Comercial → Rectificador → Carga del equipo Y carga de baterías simultáneamente.<br>
+<strong>Flujo en falla:</strong> Baterías → Carga del equipo (autonomía típica de 4-8 horas según diseño del banco).</div>
+
+<h2>1.4 Radiobases (Estaciones Base / BTS)</h2>
+<p><strong>Definición:</strong> instalación fija que transmite y recibe señales de radio para conectar los teléfonos móviles con la red del operador (Movistar, Digitel, Movilnet).</p>
+<h3>Componentes principales:</h3>
+<ul>
+<li><strong>Antenas:</strong> emiten y captan las ondas de radio (paneles rectangulares en la parte superior de la torre).</li>
+<li><strong>RRU (Remote Radio Unit):</strong> unidad de radio remota, instalada cerca de la antena.</li>
+<li><strong>BBU (Baseband Unit):</strong> procesa la señal de banda base (el "cerebro" digital de la celda).</li>
+<li><strong>Sistema de energía:</strong> rectificador + baterías (el corazón eléctrico que el técnico de PIMVCA mantiene).</li>
+<li><strong>Enlace de backhaul:</strong> fibra óptica, microondas o satélite que conecta la radiobase con el núcleo de la red.</li>
+</ul>
+<p><strong>Tipos de cobertura:</strong> macrocélulas (torres grandes), microcélulas y picocélulas (zonas urbanas densas).</p>
+</div>
+
+<div class="section">
+<h2>1.5 Subestaciones Eléctricas</h2>
+<p><strong>Definición:</strong> instalación que transforma, distribuye y protege la energía eléctrica. Agrupa transformadores, interruptores, seccionadores, barras y equipos de protección.</p>
+<h3>Componentes principales:</h3>
+<ul>
+<li><strong>Transformador:</strong> eleva o baja la tensión (ej. 13,8 kV → 480V).</li>
+<li><strong>Barras colectoras (busbars):</strong> conductores metálicos (cobre/aluminio) que distribuyen la energía dentro de la subestación.</li>
+<li><strong>Interruptores (breakers):</strong> abren o cierran circuitos, incluso bajo carga; cortan fallas.</li>
+<li><strong>Seccionadores (disconnectors):</strong> aíslan secciones del circuito para mantenimiento seguro; NO deben abrirse bajo carga.</li>
+<li><strong>Relés de protección:</strong> detectan fallas (sobrecorriente, cortocircuito) y ordenan el disparo del interruptor.</li>
+<li><strong>Pararrayos (SPD):</strong> protegen contra sobretensiones atmosféricas.</li>
+<li><strong>Transformadores de medida (CT/PT):</strong> reducen corriente/tensión para medición y protección.</li>
+<li><strong>Esquemas de barra:</strong> simple, doble, interruptor y medio (mayor confiabilidad, mayor costo).</li>
+</ul>
+
+<h2>1.6 Plantas de Emergencia y TTA/ATS</h2>
+<ul>
+<li><strong>Planta de emergencia (moto-generador diésel):</strong> genera energía AC cuando falla la red comercial.</li>
+<li><strong>TTA / ATS (Tablero de Transferencia Automática):</strong> conmuta la carga de la red comercial a la planta automáticamente.
+<ul>
+<li>Ciclo típico: detecta falla → envía señal de arranque al generador (5-8 seg) → espera estabilización de voltaje y frecuencia (3-5 seg) → conmuta la carga.</li>
+<li>Al volver la red comercial, tras un periodo de estabilización, regresa la carga a la red y detiene el generador.</li>
+</ul></li>
+</ul>
+
+<h2>1.7 Seguridad Eléctrica (NFPA 70E)</h2>
+<ul>
+<li><strong>LOTO (Lockout/Tagout):</strong> bloquear y etiquetar los interruptores de energía antes de trabajar; garantiza que nadie reenergice el equipo mientras se interviene.</li>
+<li><strong>EPP (Equipo de Protección Personal):</strong> casco dieléctrico, careta anti-arco, guantes de potencial, gafas, calzado aislante.</li>
+<li><strong>Arco eléctrico:</strong> explosión de energía radiante y calor al fallar un sistema; puede superar los 19.000 °C.</li>
+<li><strong>Zonas de riesgo:</strong> acercamiento restringido / admisible según el nivel de riesgo calculado.</li>
+</ul>
+<div class="warning"><strong>Regla de oro:</strong> verificar ausencia de tensión con multímetro antes de tocar cualquier conductor, siempre en dos pasos: probar el multímetro en una fuente conocida, medir, volver a probar el multímetro.</div>
+</div>
+
+<div class="section">
+<h1>PARTE 2. PROMPT PROFESIONAL PARA ASISTENTES DE IA</h1>
+<p>Copia y usa este prompt cuando necesites apoyo técnico urgente en campo:</p>
+<div class="prompt-box">
+<strong>"Actúa como un Ingeniero Especialista en Infraestructura Crítica, Sistemas de Energía y Telecomunicaciones.</strong> Estoy atendiendo un ticket de campo en una [Radiobase / Subestación].<br><br>
+<strong>Síntoma / Alarma detectada:</strong> [DESCRIBE AQUÍ el problema]<br><br>
+<strong>Equipos involucrados:</strong> [Ej: Rectificador Huawei/Eltek, Tablero SACC, TTA, Banco de Baterías AGM].<br><br>
+Por favor, ayúdame con:<br>
+1. Análisis técnico de las 3 causas raíces más probables (ordenadas de más a menos común).<br>
+2. Paso a paso seguro de diagnóstico con las herramientas adecuadas (multímetro, termografía, pinza de corriente).<br>
+3. Precauciones de seguridad eléctrica (Lockout/Tagout, EPP, límites de choque NFPA 70E).<br>
+4. Posibles códigos de error en los equipos y cómo interpretarlos."
+</div>
+
+<h1>PARTE 3. ESTRUCTURA DEL TICKET DE TRABAJO</h1>
+<table>
+<tr><th>Campo</th><th>Ejemplo</th></tr>
+<tr><td><strong>ID Ticket / Orden</strong></td><td>INC-2026-8842 / MNT-2026-015</td></tr>
+<tr><td><strong>Tipo</strong></td><td>Incidente / Mantenimiento / Mejora</td></tr>
+<tr><td><strong>Prioridad</strong></td><td>Crítica / Alta / Media / Baja</td></tr>
+<tr><td><strong>Sitio / Ubicación</strong></td><td>Radiobase Guayana Centro / Subestación Principal</td></tr>
+<tr><td><strong>Fecha y Hora de Reporte</strong></td><td>15/10/2026 08:30</td></tr>
+<tr><td><strong>Sistema Afectado</strong></td><td>Planta de emergencia / Rectificador / Batería</td></tr>
+<tr><td><strong>Descripción del Incidente</strong></td><td>"Alarma de fallo de red comercial y caída de tensión en batería principal"</td></tr>
+<tr><td><strong>Diagnóstico en Campo (Causa Raíz)</strong></td><td>"Breaker general de entrada AC disparado por pico de voltaje"</td></tr>
+<tr><td><strong>Acciones Correctivas Realizadas</strong></td><td>"Se midió aislamiento y continuidad, se restableció el interruptor termomagnético, se verificó arranque en carga del moto-generador, se confirmó salida -48V y recarga de baterías"</td></tr>
+<tr><td><strong>Repuestos Utilizados</strong></td><td>1x Breaker 63A termomagnético (PN: S263-63)</td></tr>
+<tr><td><strong>Herramientas Empleadas</strong></td><td>Multímetro Fluke 117, pinza amperométrica, termógrafo</td></tr>
+<tr><td><strong>Evidencia Fotográfica</strong></td><td>IMG_20261015_084530.jpg</td></tr>
+<tr><td><strong>Tiempo de Resolución</strong></td><td>2h 15min</td></tr>
+<tr><td><strong>Estatus Final</strong></td><td>Cerrado / Monitoreo preventivo / Pendiente de repuesto</td></tr>
+<tr><td><strong>Lección Aprendida</strong></td><td>"Instalar supresor de picos en entrada AC"</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h1>PARTE 4. RECURSOS EDUCATIVOS RECOMENDADOS</h1>
+
+<h2>&#9889; Energía DC y Telecomunicaciones</h2>
+<ul>
+<li>"Learn the Main Elements of an Electrical Substation" — <a href="https://www.youtube.com/watch?v=ERoM4KaL1tE">youtube.com/watch?v=ERoM4KaL1tE</a></li>
+<li>"Bancos de baterías: configuración y análisis" — <a href="https://www.youtube.com/watch?v=7tOXT057PSo">youtube.com/watch?v=7tOXT057PSo</a></li>
+<li>"How a UPS works" — <a href="https://www.youtube.com/watch?v=Dq3Jb1kOfcc">youtube.com/watch?v=Dq3Jb1kOfcc</a></li>
+</ul>
+
+<h2>&#9881; Transferencia Automática (ATS/TTA)</h2>
+<ul>
+<li>Playlist "ATS / TTA / Power Changeover Switch" — <a href="https://www.youtube.com/playlist?list=PL_BP9b8XAG6C8vxP3pxlgZ0BwQuocqo3u">youtube.com/playlist</a></li>
+<li>"Tutorial controlador ATS Be242" — <a href="https://www.youtube.com/watch?v=qeVwpkQpGxw">youtube.com/watch?v=qeVwpkQpGxw</a></li>
+</ul>
+
+<h2>&#127959; Subestaciones</h2>
+<ul>
+<li>"CÓMO se CONSTRUYE una SUBESTACIÓN ELÉCTRICA?" — <a href="https://www.youtube.com/watch?v=2-FksVmJB8s">youtube.com/watch?v=2-FksVmJB8s</a></li>
+<li>Playlist "Todo lo que Necesitas Saber sobre Subestaciones Eléctricas" — <a href="https://www.youtube.com/playlist?list=PLRllDqlgkOyUf9H0x3Yr6S-gZvH68hmHN">youtube.com/playlist</a></li>
+</ul>
+
+<h2>&#128737; Seguridad Eléctrica (NFPA 70E)</h2>
+<ul>
+<li>"Curso de Seguridad Eléctrica NFPA 70E" — <a href="https://www.youtube.com/watch?v=xYHQ3Px5mWI">youtube.com/watch?v=xYHQ3Px5mWI</a></li>
+<li>Norma NFPA 70E 2021 (PDF) — <a href="https://www.oshacademylatam.com/storage/2022/04/NFPA-70E-2021-1.pdf">oshacademylatam.com</a></li>
+</ul>
+
+<h2>&#128218; Repositorios GitHub y Documentación</h2>
+<ul>
+<li><strong>Huawei R48xx (rectificadores):</strong> <a href="https://github.com/patagonaa/huawei-r48xx">github.com/patagonaa/huawei-r48xx</a></li>
+<li><strong>Electrónica de potencia (estudios):</strong> <a href="https://github.com/tmhd99/power-electronics-studymaterials">github.com/tmhd99/power-electronics-studymaterials</a></li>
+<li><strong>Manuales de fabricantes:</strong> buscar en Google el modelo del equipo + "user manual" (Eltek, Vertiv/Emerson, Delta, Huawei, Schneider).</li>
+</ul>
+</div>
+
+<div class="section">
+<h1>PARTE 5. PLAN DE ESTUDIO (16 SEMANAS)</h1>
+<table>
+<tr><th>Semanas</th><th>Tema</th></tr>
+<tr><td>1-2</td><td>Fundamentos de electricidad (CA/CC, voltaje, corriente, potencia, ley de Ohm)</td></tr>
+<tr><td>3-4</td><td>Rectificadores y convertidores AC→DC (-48V)</td></tr>
+<tr><td>5-6</td><td>Baterías: AGM, Gel, LiFePO4, ciclos de carga/descarga, autonomía</td></tr>
+<tr><td>7-8</td><td>Plantas de emergencia y generadores diésel (arranque, estabilización, TTA/ATS)</td></tr>
+<tr><td>9-10</td><td>Subestaciones eléctricas (componentes, protecciones, tableros de CC)</td></tr>
+<tr><td>11-12</td><td>Seguridad eléctrica NFPA 70E (LOTO, EPP, arcos eléctricos)</td></tr>
+<tr><td>13-14</td><td>Diagnóstico de fallas con herramientas (multímetro, pinza, termografía)</td></tr>
+<tr><td>15-16</td><td>Tickets de trabajo y trazabilidad (estructura, reportes, lecciones aprendidas)</td></tr>
+</table>
+
+<h1>PARTE 6. PREGUNTAS DE REPASO</h1>
+<ol>
+<li>¿Por qué el estándar de telecomunicaciones usa -48V con polo positivo a tierra?</li>
+<li>¿Qué diferencia hay entre un seccionador y un interruptor?</li>
+<li>Describe el ciclo completo de un TTA cuando se va la red comercial.</li>
+<li>¿Qué mide el megóhmetro y por qué es importante en el mantenimiento?</li>
+<li>¿Cuáles son los pasos del procedimiento LOTO antes de intervenir un tablero?</li>
+<li>¿Qué le pasa a la radiobase cuando se agotan las baterías y la planta no arranca?</li>
+<li>Menciona 3 causas comunes de alarma en un rectificador modular.</li>
+</ol>
+
+<div class="footer-note">Guía elaborada para formación técnica — PIMVCA (pimvca.com.ve) — Octubre 2026</div>
+</div>
+</main>
+<footer class="footer">
+  Guia elaborada para formacion tecnica - PIMVCA (pimvca.com.ve) - Octubre 2026<br>
+  Contenido de uso educativo interno
+</footer>
+</div>
+</body>
+</html>

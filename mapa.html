@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de telecomunicaciones - Ciudad Guayana - PIMVCA</title>
+<meta name="description" content="Mapa interactivo de centrales y operadores de telecomunicaciones en Ciudad Guayana, Estado Bolivar: CANTV, Movistar y Digitel.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.55rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 32px !important; }
+h2 { font-size: 1.16rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.03rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+#mapa { height: 460px; border-radius: 8px; border: 1px solid #cfd8dc; margin: 14px 0; z-index: 0; }
+.leyenda { font-size: .88rem; margin: 10px 0; }
+.leyenda span { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin: 0 5px 0 12px; vertical-align: middle; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.28rem; } h2 { font-size: 1.06rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+  #mapa { height: 380px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero" style="background: linear-gradient(135deg, #1565c0 0%, #ef6c00 100%);">
+  <h1>🗺️ Ciudad Guayana — Operadores y centrales</h1>
+  <p>Puerto Ordaz y San Félix · Estado Bolívar · datos de OpenStreetMap</p>
+  <div class="btns">
+    <a class="btn" href="index.html">&#8592; Guía de telecomunicaciones</a>
+    <a class="btn" href="Guia_Telecomunicaciones_PIMVCA.pdf" download>&#128229; PDF</a>
+  </div>
+</header>
+<main>
+
+<h1>🗺️ Centrales y operadores de telecomunicaciones en Ciudad Guayana</h1>
+<p>Mapa interactivo de los puntos de referencia <strong>públicos</strong> de los principales operadores en <strong>Ciudad Guayana (Puerto Ordaz y San Félix), Estado Bolívar</strong>: oficinas y centros de atención de CANTV, Movistar y Digitel, tomados de OpenStreetMap.</p>
+
+<div class="leyenda">
+  <strong>Leyenda:</strong>
+  <span style="background:#1565c0"></span> CANTV
+  <span style="background:#00897b"></span> Movistar
+  <span style="background:#ef6c00"></span> Digitel
+</div>
+
+<div id="mapa"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+var puntos = [
+ {lat:8.3510668, lon:-62.6732415, nom:"CANTV El Roble", tipo:"CANTV", dir:"Av. Antonio de Berrío — San Félix"},
+ {lat:8.3110810, lon:-62.7163101, nom:"CANTV Puerto Ordaz", tipo:"CANTV", dir:"Calle La Paz, Parroquia Cachamay"},
+ {lat:8.2926606, lon:-62.7420062, nom:"Movistar — Av. Las Américas", tipo:"Movistar", dir:"Av. Las Américas, Puerto Ordaz"},
+ {lat:8.2973027, lon:-62.7299033, nom:"Movistar — Carrera Tocoma", tipo:"Movistar", dir:"Carrera Tocoma, Puerto Ordaz"},
+ {lat:8.3070074, lon:-62.7249127, nom:"Movistar — C.C. Chilemex", tipo:"Movistar", dir:"C.C. Chilemex, Av. México"},
+ {lat:8.2944491, lon:-62.7330512, nom:"Movistar — Calle Caura", tipo:"Movistar", dir:"Calle Caura, Puerto Ordaz"},
+ {lat:8.2948302, lon:-62.7326286, nom:"Movistar — Calle Cuchivero", tipo:"Movistar", dir:"Calle Cuchivero, Puerto Ordaz"},
+ {lat:8.2931860, lon:-62.7401594, nom:"Centro de atención Digitel", tipo:"Digitel", dir:"Av. Guayana, Puerto Ordaz"},
+ {lat:8.2921409, lon:-62.7430095, nom:"Digitel — Av. Guayana", tipo:"Digitel", dir:"Av. Guayana, Puerto Ordaz"},
+ {lat:8.2620206, lon:-62.7720559, nom:"Digitel — Plaza Atlántico Mall", tipo:"Digitel", dir:"Av. Atlántico, Puerto Ordaz"},
+ {lat:8.3691018, lon:-62.6623847, nom:"Digitel — Calle 4 Ramírez", tipo:"Digitel", dir:"San Félix"},
+ {lat:8.3688091, lon:-62.6616857, nom:"Digitel — Carrera 5 Mariño", tipo:"Digitel", dir:"San Félix"}
+];
+var colores = {CANTV:"#1565c0", Movistar:"#00897b", Digitel:"#ef6c00"};
+var mapa = L.map("mapa").setView([8.312, -62.705], 12);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(mapa);
+puntos.forEach(function(p) {
+  L.circleMarker([p.lat, p.lon], {
+    radius: 9, color: "#fff", weight: 2,
+    fillColor: colores[p.tipo], fillOpacity: 0.95
+  }).addTo(mapa).bindPopup("<strong>" + p.nom + "</strong><br>" + p.tipo + "<br>" + p.dir);
+});
+</script>
+
+<div class="nota"><strong>Nota para el técnico:</strong> este mapa muestra <em>puntos de referencia públicos</em> (oficinas y centros de atención) registrados en OpenStreetMap. Las <strong>instalaciones técnicas</strong> — centrales de conmutación, nodos core, NOC, radios bases y subestaciones — <strong>no tienen ubicación pública</strong> por seguridad operativa; en PIMVCA se manejan con los registros internos y los planos autorizados. Cruce este mapa con su información interna para planificar visitas y rutas.</div>
+
+<h2>Cómo usar este mapa en campo</h2>
+<ul>
+<li>Identifique el punto de atención más cercano para trámites o soporte del operador.</li>
+<li>En incidentes regionales, use estos puntos como referencia para coordinar con el operador.</li>
+<li>Abra este mapa desde el celular: funciona con GPS y le muestra su posición respecto a los puntos.</li>
+</ul>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia OTDR - Manipulacion y medicion - PIMVCA</title>
+<meta name="description" content="Guia completa de OTDR: manipulacion, procedimiento de medicion, interpretacion de trazas, criterios de aceptacion y errores comunes.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.55rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 32px !important; }
+h2 { font-size: 1.16rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.03rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+#mapa { height: 460px; border-radius: 8px; border: 1px solid #cfd8dc; margin: 14px 0; z-index: 0; }
+.leyenda { font-size: .88rem; margin: 10px 0; }
+.leyenda span { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin: 0 5px 0 12px; vertical-align: middle; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.28rem; } h2 { font-size: 1.06rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+  #mapa { height: 380px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero" style="background: linear-gradient(135deg, #00695c 0%, #1565c0 100%);">
+  <h1>🔬 Guía completa de OTDR</h1>
+  <p>Manipulación, medición e interpretación de trazas — complemento de la PARTE 3.1</p>
+  <div class="btns">
+    <a class="btn" href="index.html">&#8592; Guía de telecomunicaciones</a>
+    <a class="btn" href="Guia_Telecomunicaciones_PIMVCA.pdf" download>&#128229; PDF</a>
+  </div>
+</header>
+<main>
+
+<h1>🔬 Guía completa de OTDR: manipulación, medición e interpretación</h1>
+<p>Complemento de la <strong>PARTE 3.1</strong> de la Guía de Telecomunicaciones. Aquí encontrará el procedimiento detallado que se usa en campo para medir enlaces de fibra óptica con un <strong>OTDR</strong> (Reflectómetro Óptico en el Dominio del Tiempo).</p>
+
+<h2>1. ¿Qué es el OTDR y para qué sirve?</h2>
+<p>El OTDR inyecta pulsos de luz por la fibra y mide la luz que vuelve por <strong>dispersión de Rayleigh</strong> y por los <strong>reflejos</strong> de los conectores y empalmes. Con eso construye una <em>traza</em>: un gráfico de potencia (dB) versus distancia (km) que muestra dónde está cada evento y cuánta pérdida produce.</p>
+<p>Sirve para: localizar cortes y empalmes, medir la atenuación del tramo (dB/km), detectar conectores sucios o mal emparejados, verificar la longitud del enlace y archivar una <em>línea base</em> para comparaciones futuras.</p>
+
+<h2>2. Manipulación correcta del equipo y de la fibra</h2>
+<ul>
+<li><strong>No mire nunca dentro del conector</strong>: el pulso láser es invisible e irrita la retina. Trate todo extremo de fibra como si emitiera láser.</li>
+<li><strong>Limpie e inspeccione siempre</strong> el conector del OTDR y el del enlace antes de conectar: use limpiador de lente seco o húmedo y, si tiene, un visualizador de fibra (video probe). La suciedad es la causa número uno de eventos fantasma.</li>
+<li><strong>Use bobina de lanzamiento</strong> (launch cable) de 300 m a 1 km para sacar el primer conector fuera de la zona muerta de arranque; y bobina de recepción (receive cable) en el otro extremo para ver el final de la fibra.</li>
+<li><strong>Proteja los extremos</strong> con tapas limpias cuando no estén conectados; no deje conectores destapados ni sobre superficies sucias.</li>
+<li><strong>Respete el radio mínimo de curvatura</strong> de la fibra (típicamente 30 mm en patch cords); nunca doble, tire ni pise el cordón óptico.</li>
+<li><strong>Verifique batería, calibración y fecha</strong> antes de salir a campo; lleve adaptadores limpios y bobinas conocidas.</li>
+<li><strong>Conecte con el OTDR apagado o en standby</strong> cuando sea posible, y confirme siempre que la fibra esté <em>muerta</em> (sin servicio) o que el OTDR esté autorizado para la longitud de onda que usará.</li>
+</ul>
+
+<h2>3. Procedimiento de medición paso a paso</h2>
+<ol>
+<li><strong>Identifique y etiquete</strong> la fibra a medir; confirme permisos y que el tramo esté fuera de servicio si aplica.</li>
+<li><strong>Limpie e inspeccione</strong> conectores (del OTDR, del panel y del enlace).</li>
+<li><strong>Conecte la bobina de lanzamiento</strong> al OTDR y esta al conector del enlace.</li>
+<li><strong>Configure el equipo:</strong>
+ <ul>
+  <li><em>Índice de refracción (IOR)</em>: el valor del fabricante de la fibra; un IOR incorrecto desplaza todas las distancias.</li>
+  <li><em>Longitud de onda</em>: 1310 nm y 1550 nm como mínimo (medir siempre en ambas); 1625/1650 nm para mantenimiento de redes activas con el equipo adecuado.</li>
+  <li><em>Rango (range)</em>: de 1,5 a 3 veces la longitud del enlace; un rango demasiado grande reduce la resolución del evento.</li>
+  <li><em>Tiempo de promediación</em>: aumente hasta que la traza sea limpia; más promediación = menos ruido, más tiempo.</li>
+  <li><em>Ancho de pulso</em>: pulsos cortos para alta resolución de eventos; pulsos largos para mayor alcance.</li>
+ </ul>
+</li>
+<li><strong>Lanze la medición</strong> y espere la traza completa; repita si es necesario con otro pulso.</li>
+<li><strong>Coloque marcadores A/B</strong> al inicio y al fin del tramo; lea la pérdida total, la atenuación media (dB/km) y la lista de eventos.</li>
+<li><strong>Repita desde el otro extremo</strong> (medición bidireccional): los empalmes mal fusionados se disimulan en una sola dirección; el promedio bidireccional es el criterio correcto.</li>
+<li><strong>Guarde la traza</strong> en formato .SOR con nombre normalizado (sitio-tramo-fecha-λ) y adjunte la captura al ticket.</li>
+<li><strong>Compare con los criterios de aceptación</strong> y con la línea base anterior.</li>
+</ol>
+
+<h2>4. Cómo leer la traza</h2>
+<ul>
+<li><strong>Pendiente recta</strong> (dB/km): es la atenuación natural de la fibra; la pendiente sube con la distancia.</li>
+<li><strong>Evento reflectante</strong> (pico hacia arriba): conectores, empalmes reflectivos o el final de la fibra; produce también <em>zona muerta de evento</em>.</li>
+<li><strong>Evento no reflectante</strong> (escalón hacia abajo sin pico): empalme por fusión o curva excesiva.</li>
+<li><strong>Zona muerta de arranque</strong>: los primeros metros donde el detector está saturado; por eso se usa la bobina de lanzamiento.</li>
+<li><strong>Cola del Rayleigh / ruido</strong>: cuando la traza se vuelve irregular al final, la fibra terminó (o hay un corte).</li>
+</ul>
+
+<h2>5. Longitud de onda: ¿cuál usar?</h2>
+<table>
+<tr><th>Longitud de onda</th><th>Uso principal</th><th>Observación</th></tr>
+<tr><td>1310 nm</td><td>Medición básica; zona de dispersión cero</td><td>Atenuación mayor (~0,35 dB/km típico)</td></tr>
+<tr><td>1550 nm</td><td>Medición de largo alcance y detección de macrocurvas</td><td>Atenuación mínima (~0,20-0,25 dB/km); sensible a curvas</td></tr>
+<tr><td>1625 / 1650 nm</td><td>Mantenimiento de red activa y PON (con filtros)</td><td>Requiere OTDR y adaptadores específicos</td></tr>
+</table>
+
+<h2>6. Criterios típicos de aceptación (referencia)</h2>
+<table>
+<tr><th>Elemento / parámetro</th><th>Criterio habitual</th></tr>
+<tr><td>Empalme por fusión</td><td>Menor de 0,1 dB (idealmente invisible)</td></tr>
+<tr><td>Conector (cada uno)</td><td>Menor de 0,5 dB</td></tr>
+<tr><td>Pendiente a 1310 nm</td><td>Hasta ~0,35 dB/km</td></tr>
+<tr><td>Pendiente a 1550 nm</td><td>Hasta ~0,25 dB/km</td></tr>
+<tr><td>Pérdida total del enlace</td><td>Según presupuesto óptico del diseño (ver PARTE 3.1)</td></tr>
+</table>
+<div class="nota"><strong>Importante:</strong> el OTDR estima la pérdida por reflectancia y pendiente; <strong>no sustituye</strong> a la medición de pérdida extremo a extremo con fuente y potenciómetro calibrados (OLA/OLP). Para aceptación contractual, siga el método aprobado por el cliente.</div>
+
+<h2>7. Errores comunes</h2>
+<ul>
+<li>Usar un rango demasiado grande y perder resolución en los eventos.</li>
+<li>Olvidar la bobina de lanzamiento (no se ve el primer conector ni el empalme 1).</li>
+<li>No limpiar el conector: la suciedad aparece como un evento de pérdida alta.</li>
+<li>Configurar mal el IOR: todas las distancias quedan desplazadas (puede variar ~1-2%).</li>
+<li>Medir solo en una dirección y dar un empalme por bueno.</li>
+<li>Comparar trazas de λ distintas sin ajustar: la pendiente de 1550 nm siempre es mayor que la de 1310 nm.</li>
+<li>No guardar la traza o perder el archivo .SOR (la evidencia es parte del trabajo).</li>
+</ul>
+
+<h2>8. Seguridad</h2>
+<div class="alerta"><strong>⚠️ Láser invisible:</strong> nunca mire directamente al conector mientras el OTDR transmite; use siempre la tapa. En sitio, verifique la autorización y la posible presencia de luz (OTDRs de mantenimiento trabajan sobre red viva solo con equipo y longitudes de onda autorizadas — típicamente con filtros en 1625/1650 nm).</div>
+
+<h2>9. Mini-checklist de campo</h2>
+<ol>
+<li>Permisos y fibra identificada/etiquetada.</li>
+<li>Limpieza e inspección de conectores.</li>
+<li>Bobina de lanzamiento conectada.</li>
+<li>IOR, rango, pulso y promediación configurados.</li>
+<li>Medición en 1310 y 1550 nm.</li>
+<li>Marcadores A/B colocados; eventos revisados.</li>
+<li>Medición del otro extremo (bidireccional).</li>
+<li>Traza .SOR guardada + captura al ticket.</li>
+<li>Conectores con tapa; equipo y bobinas guardados.</li>
+</ol>
+
+<h2>10. Enlaces para seguir aprendiendo</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://es.wikipedia.org/wiki/Reflectometr%C3%ADa_de_dominio_optico">Reflectometría de dominio óptico — Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=curso+OTDR+fibra+optica+espanol">Videos: curso de OTDR en español (YouTube)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.thefiber.org">The FOA — Fiber Optic Association (referencia en inglés)</a></li>
+<li>Vuelva a la <a href="index.html">guía principal de telecomunicaciones</a> (PARTE 3.1 y PARTE 9).</li>
+</ul>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>
