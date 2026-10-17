@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema electrico del sitio - cuadro de fuerza, generador y subestacion - PIMVCA</title>
+<meta name="description" content="Guia practica del sistema electrico del sitio: cuadro de fuerza, grupo electrogeno con TTA/ATS, subestacion en media tension, mantenimiento electrico y alarmas tipicas.">
+<meta name="theme-color" content="#00695c">
+<style>* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16.5px; line-height: 1.65; color: #1a1a2e; margin: 0; background: #eef1f5; }
+.wrap { max-width: 940px; margin: 0 auto; background: #fff; min-height: 100vh; box-shadow: 0 0 18px rgba(0,0,0,.08); }
+.navsitio { background: #263238; padding: 7px 6px; text-align: center; }
+.navsitio a { display: inline-block; color: #fff; text-decoration: none; font-size: .86rem; margin: 3px 4px; padding: 4px 11px; border-radius: 14px; background: rgba(255,255,255,.13); white-space: nowrap; }
+.navsitio a:hover, .navsitio a:focus { background: rgba(255,255,255,.3); }
+.hero { color: #fff; padding: 30px 18px 24px; text-align: center; }
+.hero h1 { color: #fff !important; border: none !important; font-size: 1.55rem !important; margin: 0 0 8px !important; padding: 0 !important; }
+.hero p { margin: 4px 0 14px; opacity: .95; font-size: 1rem; }
+.hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero a.btn { background: #fff; color: #0d47a1; padding: 10px 18px; border-radius: 24px; text-decoration: none; font-weight: bold; font-size: .95rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+main { padding: 8px 16px 50px; }
+h1 { font-size: 1.45rem; color: #00695c; border-bottom: 3px solid #00695c; padding-bottom: 6px; margin-top: 32px !important; }
+h2 { font-size: 1.16rem; color: #00897b; margin-top: 26px; border-left: 5px solid #00897b; padding-left: 10px; }
+h3 { font-size: 1.03rem; color: #37474f; margin-top: 18px; }
+p { margin: 10px 0; text-align: justify; }
+a { color: #1565c0; word-break: break-word; }
+ul, ol { padding-left: 22px; } li { margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; }
+th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
+td { border: 1px solid #ccc; padding: 7px 6px; }
+tr:nth-child(even) td { background: #f4f6f9; }
+.nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
+figure { margin: 18px auto; text-align: center; }
+figure img { max-width: 100%; height: auto; border: 1px solid #cfd8dc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.14); }
+figcaption { font-size: .82rem; color: #607d8b; font-style: italic; margin-top: 7px; }
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+.footer { text-align: center; color: #78909c; font-size: .85rem; padding: 18px; border-top: 1px solid #e0e0e0; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  h1 { font-size: 1.28rem; } h2 { font-size: 1.06rem; }
+  .hero { padding: 22px 12px 18px; } main { padding: 6px 12px 40px; }
+}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="navsitio">
+  <a href="index.html">&#128225; Gu&#237;a</a><a href="otdr.html">&#128301; OTDR</a><a href="microondas.html">&#128246; Microondas</a><a href="seguridad-nfpa70e.html">&#128737;&#65039; Seguridad</a><a href="mapa.html">&#128506; Mapa</a><a href="infraestructura.html">&#128215; Energ&#237;a</a><a href="sistema-electrico.html">&#9889; El&#233;ctrico</a>
+</nav>
+<header class="hero" style="background: linear-gradient(135deg, #0d47a1 0%, #ef6c00 100%);">
+  <h1>⚡ Sistema eléctrico del sitio</h1>
+  <p>Cuadro de fuerza, generadores y subestación — cómo se mantiene eléctricamente el lugar</p>
+  <div class="btns">
+    <a class="btn" href="index.html">&#8592; Guía de telecomunicaciones</a>
+    <a class="btn" href="Guia_Telecomunicaciones_PIMVCA.pdf" download>&#128229; PDF</a>
+  </div>
+</header>
+<main>
+
+<h1>⚡ Sistema eléctrico del sitio: cuadro de fuerza, generadores y subestación</h1>
+<p>Esta zona responde una pregunta que aparece en cada visita: <strong>¿cómo se mantiene eléctricamente el lugar?</strong> Aquí está la cadena completa — desde la acometida en media tensión hasta el último equipo — con lo que el técnico necesita para <strong>entender, inspeccionar y reportar</strong> sin improvisar. Complementa la <a href="infraestructura.html">Guía de Infraestructura Crítica y Energía</a> (conceptos básicos y sistema -48 V).</p>
+
+<h2>1. La cadena de energía del sitio: de dónde viene y quién la respalda</h2>
+<p>La energía eléctrica no "aparece" en el equipo: recorre una cadena fija. Ubique mentalmente sus eslabones en cada sitio que visite — si sabe cuál es cuál, sabrá qué preguntar, qué medir y qué reportar cuando algo falle.</p>
+<figure>
+<img loading="lazy" decoding="async" src="flujo_sitio.svg?v=1" alt="Diagrama de bloques: red comercial en media tensión, subestación con transformador, cuadro de fuerza, transferencia automática TTA, generador diésel de respaldo, rectificador -48 V con baterías y cargas del sitio">
+<figcaption>La cadena de energía del sitio y sus dos respaldos: el generador para la corriente alterna y el rectificador con baterías para los equipos de telecom. Esquema: elaboración propia PIMVCA.</figcaption>
+</figure>
+<ul>
+<li><strong>Red comercial:</strong> llega en media tensión (MT, 13,8 kV típico). Es la fuente normal y no tiene respaldo propio.</li>
+<li><strong>Subestación del sitio:</strong> seccionador, interruptor con protecciones y transformador que baja la tensión a 480/208 V (sección 4).</li>
+<li><strong>Cuadro de fuerza:</strong> el tablero principal que reparte y protege cada circuito del sitio (sección 2).</li>
+<li><strong>TTA/ATS:</strong> la transferencia que decide si las cargas se alimentan de la red o del generador (sección 3).</li>
+<li><strong>Respaldos:</strong> generador diésel para la CA y rectificador con baterías para los equipos de telecom en -48 V CC.</li>
+</ul>
+<table>
+<tr><th>Eslabón</th><th>Qué respalda</th><th>¿Cuánto tiempo?</th></tr>
+<tr><td>UPS / capacitores</td><td>Equipos críticos, por segundos</td><td>Segundos: puente entre la falla y la planta</td></tr>
+<tr><td>Baterías -48 V</td><td>Equipos de telecomunicaciones</td><td>Horas, según banco y carga</td></tr>
+<tr><td>Generador diésel</td><td>Todo el sitio (CA)</td><td>Días, mientras haya combustible y mantenimiento</td></tr>
+<tr><td>Red comercial</td><td>—</td><td>Sin respaldo: cuando cae, entra la cadena de abajo</td></tr>
+</table>
+<div class="nota"><strong>Idea clave:</strong> la continuidad no la da un solo equipo, sino la cadena completa. El técnico verifica eslabón por eslabón: ¿la red está sana? ¿la planta arranca? ¿el banco DC tiene carga? ¿los rectificadores trabajan? Un solo eslabón débil tumba el sitio.</div>
+
+<h2>2. El cuadro de fuerza (tablero principal de distribución)</h2>
+<p>El <strong>cuadro de fuerza</strong> es el gabinete donde llega la energía ya transformada (480/208 V) y desde donde se reparte a cada circuito del sitio: rectificadores, climatización, luces, tomas de fuerza y equipos auxiliares. Es el punto donde "todo se ve y todo se puede cortar" — por eso es también el más vigilado.</p>
+<figure>
+<img loading="lazy" decoding="async" src="cuadro_fuerza.svg?v=1" alt="Esquema frontal de un cuadro de fuerza: interruptor general con palanca, medidor, fila de seis interruptores derivados rotulados y puesta a tierra">
+<figcaption>Esquema frontal de un cuadro de fuerza: interruptor general, medidor, interruptores derivados rotulados por circuito y puesta a tierra. Esquema: elaboración propia PIMVCA.</figcaption>
+</figure>
+<figure>
+<img src="imgs/cuadro_abierto.jpg" style="max-width:540px" alt="Interior de un cuadro de distribución abierto: interruptores modulares DIN, cableado identificado por color, medidor y bornera de tierra" loading="lazy" decoding="async" width="700" height="933">
+<figcaption>Por dentro de un cuadro real (abierto solo con permiso y LOTO aplicado): interruptores modulares, cableado identificado por color, medidor y bornera de tierra. Foto: Dmitry G — Wikimedia Commons (CC BY-SA 3.0).</figcaption>
+</figure>
+<h3>Partes que debe reconocer</h3>
+<ul>
+<li><strong>Interruptor general:</strong> la entrada del tablero; corta o conecta todo. Es el punto de bloqueo principal (LOTO).</li>
+<li><strong>Barras (buses):</strong> reciben la energía y la distribuyen a los interruptores derivados.</li>
+<li><strong>Interruptores derivados (breakers):</strong> uno por circuito, dimensionados a la carga y al cable. Protegen contra sobrecarga y cortocircuito.</li>
+<li><strong>Medidor e indicadores:</strong> voltaje por fase, corriente y kWh; de aquí se toman las lecturas de la ronda.</li>
+<li><strong>Puesta a tierra:</strong> barra del gabinete conectada a la malla del sitio. Nunca se retira ni se desvía.</li>
+<li><strong>Rotulado:</strong> cada breaker y cada cable identificados (L1·L2·L3·N·T). Sin rótulos no se interviene.</li>
+</ul>
+<h3>Cómo se inspecciona (sin abrir)</h3>
+<ul>
+<li><strong>Termografía:</strong> apunte la cámara a breakers y barras desde fuera; una diferencia notable de temperatura entre fases delata apriete flojo o contacto desgastado.</li>
+<li><strong>Lecturas:</strong> voltaje entre fases y fase-neutro, corriente por fase (pinza). Registre y compare con la línea base: el <strong>desbalance entre fases</strong> calienta equipos y dispara alarmas.</li>
+<li><strong>Ruido y olor:</strong> zumbido fuerte, chisporroteo u olor a quemado se reportan de inmediato, sin abrir.</li>
+</ul>
+<div class="alerta"><strong>⚠ Antes de abrir:</strong> permiso de trabajo, análisis de riesgo, LOTO y verificación de ausencia de tensión (probador probado antes y después). El cuadro se abre con procedimiento — nunca "para mirar un momento".</div>
+
+<h2>3. El generador (grupo electrógeno) y la transferencia TTA/ATS</h2>
+<p>El <strong>grupo electrógeno</strong> (planta eléctrica) es el respaldo de CA: motor diésel + alternador + controlador, montados sobre una base. Su misión: cuando la red falla, <strong>arrancar solo</strong>, estabilizarse y asumir la carga; y cuando la red vuelve, devolverla y apagarse ordenadamente. Los tiempos siguientes son típicos — valide el comportamiento real contra el manual del controlador y el procedimiento del sitio.</p>
+<figure>
+<img loading="lazy" decoding="async" src="grupo_electrogeno.svg?v=1" alt="Esquema del grupo electrógeno: tanque de combustible, motor diésel, alternador, radiador con escape, batería de arranque y controlador">
+<figcaption>Esquema del grupo electrógeno: tanque, motor, alternador, radiador, batería de arranque y controlador. Esquema: elaboración propia PIMVCA.</figcaption>
+</figure>
+<figure>
+<img src="imgs/generador_diesel.jpg" alt="Grupo electrógeno de respaldo en carcasa insonorizada beige, sobre base de concreto, instalado en el exterior de un edificio" loading="lazy" decoding="async" width="950" height="633">
+<figcaption>Grupo electrógeno de respaldo en carcasa insonorizada, sobre base de concreto en el exterior. Foto: Cantons-de-l'Est — Wikimedia Commons (CC0).</figcaption>
+</figure>
+<h3>Partes principales</h3>
+<ul>
+<li><strong>Motor diésel:</strong> el que gira; consume combustible y se refrigera con radiador.</li>
+<li><strong>Alternador:</strong> convierte el giro en corriente alterna (60 Hz); regula voltaje y frecuencia.</li>
+<li><strong>Controlador:</strong> el cerebro del arranque automático; monitorea voltaje, frecuencia y fallas, y recibe la señal del TTA.</li>
+<li><strong>Batería de arranque (12/24 V):</strong> da el arranque. Sin batería sana no hay planta, aunque todo lo demás esté bien.</li>
+<li><strong>Tanque y línea de combustible:</strong> con válvula de corte; revise niveles y fugas.</li>
+<li><strong>Radiador, escape y ventilación:</strong> expulsan el calor; nunca obstruya rejillas ni salidas.</li>
+</ul>
+<h3>Secuencia de transferencia (lo que debe observar)</h3>
+<ol>
+<li>Cae la red → el TTA lo detecta (segundos).</li>
+<li>Señal de arranque al generador → arranca (típico 5–8 s).</li>
+<li>Estabiliza voltaje y frecuencia (3–5 s): no se conmuta antes.</li>
+<li>Conmuta la carga a la planta: el sitio queda en generador.</li>
+<li>Al volver la red: espera de estabilización, re-transferencia a la red y parada del generador con enfriamiento — nunca se detiene en caliente.</li>
+</ol>
+<h3>Ronda del técnico y prueba periódica</h3>
+<table>
+<tr><th>Actividad</th><th>Frecuencia típica</th><th>Qué se revisa</th></tr>
+<tr><td>Inspección visual</td><td>Semanal</td><td>Niveles (aceite, refrigerante, combustible), fugas, mangueras, batería y bornes, precalentador</td></tr>
+<tr><td>Prueba en vacío</td><td>Semanal</td><td>Arranque y parada automáticos; registre el horómetro</td></tr>
+<tr><td>Prueba con carga</td><td>Mensual</td><td>30 min alimentando carga real; observe V, Hz, temperatura y humo</td></tr>
+<tr><td>Mantenimiento mayor</td><td>Según horas (fabricante)</td><td>Aceite y filtros, refrigerante, limpieza de radiador, prueba de baterías</td></tr>
+</table>
+<h3>Fallas típicas y primer diagnóstico</h3>
+<table>
+<tr><th>Síntoma</th><th>Causas probables (de más a menos común)</th></tr>
+<tr><td>No arranca</td><td>Batería descargada o bornes flojos · falta de combustible o válvula cerrada · controlador en falla o en manual</td></tr>
+<tr><td>Arranca y se apaga</td><td>Presión de aceite baja · temperatura alta (radiador obstruido) · paro de emergencia activado</td></tr>
+<tr><td>Voltaje o frecuencia fuera</td><td>Regulación desajustada · carga mal balanceada · falla de combustión</td></tr>
+<tr><td>Humo anormal</td><td>Filtro de aire sucio · inyectores · sobrecarga</td></tr>
+</table>
+<div class="nota"><strong>Regla:</strong> la planta se prueba <strong>con carga</strong>, no solo arrancándola. Una planta que "arranca bien" puede fallar al tomar carga si nunca se ejercita — y eso se descubre en la peor hora.</div>
+
+<h2>4. La subestación: cómo se tiene una subestación en el sitio</h2>
+<p>Cuando el sitio recibe media tensión (13,8 kV típico), necesita su propia <strong>subestación</strong>: el conjunto de seccionador, interruptor con protecciones, transformador y cuadro de baja tensión que convierte la MT en 480/208 V para todo el sitio. Puede ser un patio (intemperie) o una sala (interior) — en ambos casos, <strong>zona restringida</strong>.</p>
+<figure>
+<img loading="lazy" decoding="async" src="subestacion.svg?v=1" alt="Diagrama unifilar de la subestación del sitio: acometida en media tensión, seccionador, interruptor con relés, pararrayos a tierra, transformador 13,8 kV a 480-208 V y cuadro de baja tensión">
+<figcaption>Unifilar de la subestación del sitio: de la acometida en 13,8 kV al cuadro de baja tensión en 480/208 V. Esquema: elaboración propia PIMVCA.</figcaption>
+</figure>
+<figure>
+<img src="imgs/subestacion_patio.jpg" alt="Vista aérea de una subestación de distribución a la intemperie: estructura de media tensión, transformador con radiadores, switchgear y gabinetes de control sobre bases de concreto" loading="lazy" decoding="async" width="950" height="712">
+<figcaption>Subestación de distribución a la intemperie: estructura de MT, transformador, switchgear y gabinetes de control. Foto: Rsparks3 — Wikimedia Commons (CC0).</figcaption>
+</figure>
+<h3>Qué hace cada equipo</h3>
+<ul>
+<li><strong>Seccionador (cuchillas):</strong> aísla visiblemente una sección para mantenimiento. Jamás se abre bajo carga — no tiene capacidad de corte.</li>
+<li><strong>Interruptor con relés:</strong> corta la falla automáticamente; los relés de protección ordenan el disparo (sobrecorriente, falla a tierra).</li>
+<li><strong>Pararrayos (SPD):</strong> desvía a tierra las sobretensiones atmosféricas y los impulsos de maniobra.</li>
+<li><strong>Transformador:</strong> baja la tensión (13,8 kV → 480/208 V). Vigile temperatura, nivel de aceite (si es en aceite) y ruido anormal.</li>
+<li><strong>Cuadro de baja tensión:</strong> recibe la salida del transformador y la entrega al cuadro de fuerza del sitio.</li>
+<li><strong>Puesta a tierra:</strong> malla propia de la subestación; es la base de todas las protecciones.</li>
+</ul>
+<h3>Qué puede (y qué no) hacer el técnico</h3>
+<ul>
+<li><strong>Sí:</strong> inspección visual y termográfica desde fuera, lectura de instrumentos y relés, reporte de ruidos, olores, fugas y temperaturas anormales.</li>
+<li><strong>No:</strong> maniobras en MT (seccionadores, interruptores), abrir celdas energizadas, ingresar a zonas restringidas sin autorización — todo eso exige procedimiento, permiso y personal calificado.</li>
+</ul>
+<div class="alerta"><strong>Cinco reglas de oro</strong> (todo trabajo eléctrico): ① desconectar · ② bloquear y etiquetar (LOTO) · ③ verificar ausencia de tensión · ④ poner a tierra y en cortocircuito si aplica · ⑤ señalizar la zona. Se profundiza en la <a href="seguridad-nfpa70e.html">guía de Seguridad NFPA 70E</a>.</div>
+
+<h2>5. Cómo se mantiene eléctricamente el sitio (rutina de sostenimiento)</h2>
+<p>Mantener eléctricamente el lugar es una rutina, no una reparación: inspeccionar, medir, registrar y comparar. Cada dato anotado (hora, instrumento y punto de medición) forma la línea base que permite detectar el cambio <em>antes</em> de la falla.</p>
+<table>
+<tr><th>Actividad</th><th>Frecuencia típica</th><th>Detalle</th></tr>
+<tr><td>Ronda visual del sistema eléctrico</td><td>Diaria / semanal</td><td>Cuadro (sin abrir), planta, rectificador, baterías y alarmas del sitio</td></tr>
+<tr><td>Prueba del generador en vacío</td><td>Semanal</td><td>Arranque automático y horómetro</td></tr>
+<tr><td>Prueba del generador con carga + termografía de tableros</td><td>Mensual</td><td>30 min en carga; imágenes térmicas de breakers y barras</td></tr>
+<tr><td>Reapriete de conexiones y prueba de aislamiento</td><td>Semestral (con LOTO)</td><td>Torque según fabricante; megóhmetro en circuitos seleccionados</td></tr>
+<tr><td>Análisis de aceite del transformador y prueba del banco DC</td><td>Anual</td><td>Laboratorio; descarga controlada de baterías según diseño</td></tr>
+<tr><td>Limpieza de tableros y gabinetes</td><td>Semestral (con permiso)</td><td>Suciedad + humedad = fallas de aislamiento</td></tr>
+</table>
+<h3>Alarmas típicas y primera lectura</h3>
+<table>
+<tr><th>Alarma</th><th>Qué significa</th></tr>
+<tr><td>Falla de red comercial</td><td>Se perdió la fuente normal: verifique que la planta arrancó y asumió la carga</td></tr>
+<tr><td>Voltaje bajo de batería</td><td>El banco DC se está agotando: revise rectificadores y carga conectada</td></tr>
+<tr><td>Falla de rectificador</td><td>Módulo caído: verifique si los demás (N+1) sostienen la carga y el banco</td></tr>
+<tr><td>Alta temperatura en sala</td><td>Climatización o ventilación comprometida; afecta baterías y equipos</td></tr>
+<tr><td>La planta no arranca</td><td>Batería, combustible o controlador (ver sección 3)</td></tr>
+</table>
+
+<h2>6. Checklist rápido de inspección eléctrica</h2>
+<ol>
+<li>¿Cuadro de fuerza sin señales de calor, olor ni ruido anormal? (termografía si hay cámara)</li>
+<li>¿Breakers rotulados, sin disparos? ¿Reservas identificadas?</li>
+<li>¿Planta: niveles, batería, fugas, precalentador y horómetro?</li>
+<li>¿Prueba de arranque del generador al día? ¿Última prueba con carga registrada?</li>
+<li>¿Rectificadores: módulos activos, sin alarmas, voltaje de flotación correcto?</li>
+<li>¿Baterías DC: voltaje y temperatura por bloque; bornes sin sulfato?</li>
+<li>¿Subestación: instrumentos normales, sin ruidos, olores ni fugas? ¿Zona restringida respetada?</li>
+<li>¿Lecturas del día registradas con hora, instrumento y punto de medición?</li>
+<li>¿Alarmas del sitio revisadas e interpretadas?</li>
+<li>¿Algo fuera de la línea base? → reportar con evidencia fotográfica; no improvisar.</li>
+</ol>
+
+<h2>7. Preguntas de repaso</h2>
+<ol>
+<li>Dibuje la cadena de energía del sitio y marque en qué punto respalda cada elemento.</li>
+<li>¿Por qué el seccionador no debe abrirse bajo carga, y el interruptor sí puede?</li>
+<li>¿Qué revisa primero si el generador no arranca? Ordene tres causas probables.</li>
+<li>¿Qué diferencia hay entre probar la planta en vacío y con carga? ¿Por qué importa?</li>
+<li>¿Qué mide la termografía en un cuadro de fuerza y qué delata un punto caliente?</li>
+<li>¿Cuáles son las cinco reglas de oro y en qué orden se aplican?</li>
+<li>¿Qué puede hacer el técnico frente a la subestación y qué requiere autorización?</li>
+<li>¿Por qué se registran las lecturas con hora e instrumento? ¿Para qué sirve la línea base?</li>
+</ol>
+
+<h2>8. Enlaces para seguir aprendiendo</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ERoM4KaL1tE">Learn the Main Elements of an Electrical Substation</a> — recorrido por los equipos de una subestación (inglés).</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL_BP9b8XAG6C8vxP3pxlgZ0BwQuocqo3u">Playlist ATS/TTA (transferencia automática)</a> — funcionamiento y controladores reales.</li>
+<li><a target="_blank" rel="noopener" href="https://www.oshacademylatam.com/storage/2022/04/NFPA-70E-2021-1.pdf">NFPA 70E 2021 (PDF)</a> — seguridad eléctrica en el lugar de trabajo.</li>
+<li><a target="_blank" rel="noopener" href="https://www.osha.gov/electrical">OSHA — Electrical safety</a> — referencias de seguridad (inglés).</li>
+</ul>
+<div class="nota"><strong>Enlaces internos:</strong> <a href="infraestructura.html">Infraestructura Crítica y Energía</a> (conceptos y -48 V) · <a href="seguridad-nfpa70e.html">Seguridad NFPA 70E y LOTO</a>.</div>
+
+<h2>9. Créditos de las figuras</h2>
+<table>
+<tr><th>Figura</th><th>Autor</th><th>Licencia</th></tr>
+<tr><td>flujo_sitio.svg · cuadro_fuerza.svg · grupo_electrogeno.svg · subestacion.svg</td><td>Elaboración propia PIMVCA</td><td>Uso interno educativo</td></tr>
+<tr><td>generador_diesel.jpg</td><td>Cantons-de-l'Est — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>cuadro_abierto.jpg</td><td>Dmitry G — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>subestacion_patio.jpg</td><td>Rsparks3 — Wikimedia Commons</td><td>CC0</td></tr>
+</table>
+</main>
+<footer class="footer">
+  PIMVCA (pimvca.com.ve) — material de formación técnica — Octubre 2026
+</footer>
+</div>
+</body>
+</html>

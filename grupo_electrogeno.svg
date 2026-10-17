@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#37474f"/></marker><marker id="ahv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/></marker></defs>
+<rect width="720" height="400" fill="#ffffff"/>
+<rect x="40" y="240" width="150" height="64" rx="9" fill="#fff8e1" stroke="#f9a825" stroke-width="1.8"/>
+<text x="115" y="268" font-size="12" fill="#8d6e00" text-anchor="middle" font-weight="bold">TANQUE</text>
+<text x="115" y="288" font-size="10.5" fill="#8d6e00" text-anchor="middle">combustible diésel</text>
+<line x1="192" y1="268" x2="246" y2="268" stroke="#9e9e9e" stroke-width="2.6" marker-end="url(#ah)"/>
+<text x="219" y="288" font-size="10" fill="#8d6e00" text-anchor="middle">combustible</text>
+<rect x="250" y="220" width="210" height="96" rx="9" fill="#eceff1" stroke="#546e7a" stroke-width="1.8"/>
+<text x="355" y="264" font-size="12.5" fill="#37474f" text-anchor="middle" font-weight="bold">MOTOR DIÉSEL</text>
+<text x="355" y="284" font-size="11.0" fill="#37474f" text-anchor="middle">combustión interna</text>
+<line x1="462" y1="268" x2="516" y2="268" stroke="#455a64" stroke-width="6"/>
+<text x="489" y="256" font-size="10" fill="#546e7a" text-anchor="middle">eje</text>
+<rect x="520" y="220" width="160" height="96" rx="9" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.8"/>
+<text x="600" y="264" font-size="12" fill="#0d47a1" text-anchor="middle" font-weight="bold">ALTERNADOR</text>
+<text x="600" y="284" font-size="10.5" fill="#0d47a1" text-anchor="middle">genera CA 60 Hz</text>
+<line x1="682" y1="268" x2="706" y2="268" stroke="#37474f" stroke-width="2.4" marker-end="url(#ah)"/>
+<text x="700" y="252" font-size="10.5" fill="#37474f" text-anchor="end">al TTA</text>
+<rect x="250" y="96" width="210" height="58" rx="9" fill="#ffebee" stroke="#c62828" stroke-width="1.8"/>
+<text x="355" y="121" font-size="12" fill="#b71c1c" text-anchor="middle" font-weight="bold">RADIADOR + ESCAPE</text>
+<text x="355" y="141" font-size="10.5" fill="#b71c1c" text-anchor="middle">expulsa calor al exterior</text>
+<line x1="355" y1="156" x2="355" y2="216" stroke="#37474f" stroke-width="2.4" marker-end="url(#ah)"/>
+<rect x="40" y="96" width="150" height="58" rx="9" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="115" y="121" font-size="10.5" fill="#1b5e20" text-anchor="middle" font-weight="bold">BATERÍA ARRANQUE</text>
+<text x="115" y="141" font-size="9.0" fill="#1b5e20" text-anchor="middle">12 / 24 V</text>
+<polyline points="115,156 115,186 280,186 280,216" fill="none" stroke="#37474f" stroke-width="2.4" marker-end="url(#ah)"/>
+<rect x="520" y="96" width="160" height="58" rx="9" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.8"/>
+<text x="600" y="121" font-size="12.5" fill="#e65100" text-anchor="middle" font-weight="bold">CONTROLADOR</text>
+<text x="600" y="141" font-size="11.0" fill="#e65100" text-anchor="middle">automático / manual</text>
+<line x1="600" y1="156" x2="600" y2="216" stroke="#37474f" stroke-width="2.4" marker-end="url(#ah)"/>
+<text x="40" y="350" font-size="11" fill="#546e7a" text-anchor="start">Secuencia al caer la red: señal del TTA → arranque del motor (5-8 s) → estabiliza V y Hz (3-5 s) → conmuta la carga.</text>
+<text x="40" y="368" font-size="11" fill="#546e7a" text-anchor="start">Al volver la red: estabilización, retorno de la carga y parada del generador con enfriamiento — nunca se apaga en caliente.</text>
+<text x="40" y="386" font-size="11" fill="#546e7a" text-anchor="start">Ronda del técnico: niveles (aceite, refrigerante, combustible), batería y bornes, fugas, mangueras, precalentador y horómetro.</text>
+</svg>
