@@ -26,6 +26,13 @@ th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
 td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 .alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
@@ -88,6 +95,30 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Conecte con el OTDR apagado o en standby</strong> cuando sea posible, y confirme siempre que la fibra esté <em>muerta</em> (sin servicio) o que el OTDR esté autorizado para la longitud de onda que usará.</li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_fusionadora.jpg" width="640" height="426" alt="Empalmadora por fusión en faena">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Empalmadora por fusión</h4>
+<p>Une dos fibras con un arco eléctrico: alinea los núcleos automáticamente, funde las puntas y deja un empalme de muy baja pérdida (típicamente &lt;0,1 dB en monomodo). Claves de campo: cortar con cortadora de precisión (un corte con «escalón» arruina el empalme), limpieza obsesiva y protección del punto fundido con termorretráctil. Mantenimiento: limpiar electrodos y cámaras, y cambiarlos según su conteo — un arco débil o chispeante arruina empalmes. Registre la pérdida estimada de cada fusión: es su control de calidad.</p>
+<p class="credito">Foto: Asurnipal — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_medidor_potencia.jpg" width="640" height="855" alt="Medidor de potencia óptico">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Medidor de potencia óptico</h4>
+<p>Es el instrumento que mide la potencia real de la luz (dBm/μW): insustituible para verificar transmisores y receptores, medir la pérdida de un tramo ya instalado o confirmar el nivel antes de conectar un equipo. Se usa con el mismo rigor que el OTDR: puerto y conectores <strong>limpios</strong>, la longitud de onda correcta (850/1310/1550 nm) y una referencia bien tomada. Un medidor descalibrado o con conector sucio da lecturas falsas — y con ellas se toman decisiones equivocadas. Guárdelo con sus tapas puestas y sin golpes.</p>
+<p class="credito">Foto: Shyamal — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_conector.jpg" width="640" height="480" alt="Conector óptico SC (detalle)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Conectores ópticos y limpieza</h4>
+<p>El conector SC (el clásico cuadrado; versión SC/APC de cara verde) une la fibra con los equipos, pero su enemigo es invisible: polvo y huellas. Un conector sucio produce pérdidas y reflexiones y —peor— raya el puerto del OTDR o del equipo. Protocolo: inspeccionar siempre antes de conectar (lupa o video-inspector), limpiar con limpiador de un solo clic o paño adecuado, y proteger con tapas. Nunca sople «para limpiar»: la saliva y el aire comprimido sucio empeoran todo.</p>
+<p class="credito">Foto: Adamantios — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h2>3. Procedimiento de medición paso a paso</h2>
 <ol>
 <li><strong>Identifique y etiquete</strong> la fibra a medir; confirme permisos y que el tramo esté fuera de servicio si aplica.</li>
@@ -353,6 +384,9 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <table>
 <tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
 <tr><td>otdr_yokogawa.jpg</td><td>Electron — Wikimedia Commons</td><td>CC BY 3.0</td></tr>
+<tr><td>anexo_fusionadora.jpg</td><td>Asurnipal — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>anexo_medidor_potencia.jpg</td><td>Shyamal — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>anexo_conector.jpg</td><td>Adamantios — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
 <tr><td>otdr_esquema.png</td><td>IP user 92,88,82,226 — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
 <tr><td>otdr_traza_real.jpg</td><td>OLC Fiber — Wikimedia Commons</td><td>CC BY 2.0</td></tr>
 <tr><td>10 esquemas SVG de trazas y bobina</td><td>Elaboración propia PIMVCA</td><td>—</td></tr>

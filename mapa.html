@@ -26,6 +26,13 @@ th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
 td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 .alerta { background: #fff3e0; border-left: 6px solid #ef6c00; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }

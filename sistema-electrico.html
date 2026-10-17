@@ -30,6 +30,13 @@ td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 .alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 figure { margin: 18px auto; text-align: center; }
 figure img { max-width: 100%; height: auto; border: 1px solid #cfd8dc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.14); }
@@ -60,6 +67,7 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 
 <h1>⚡ Sistema eléctrico del sitio: cuadro de fuerza, generadores y subestación</h1>
 <p>Esta zona responde una pregunta que aparece en cada visita: <strong>¿cómo se mantiene eléctricamente el lugar?</strong> Aquí está la cadena completa — desde la acometida en media tensión hasta el último equipo — con lo que el técnico necesita para <strong>entender, inspeccionar y reportar</strong> sin improvisar. Complementa la <a href="infraestructura.html">Guía de Infraestructura Crítica y Energía</a> (conceptos básicos y sistema -48 V).</p>
+<div class="nota">📎 <strong>Anexos de equipo:</strong> en esta página, cada equipo clave tiene su recuadro con <strong>foto real y ficha ampliada</strong> para verlo, reconocerlo y saber qué revisar en campo.</div>
 
 <h2>1. La cadena de energía del sitio: de dónde viene y quién la respalda</h2>
 <p>La energía eléctrica no "aparece" en el equipo: recorre una cadena fija. Ubique mentalmente sus eslabones en cada sitio que visite — si sabe cuál es cuál, sabrá qué preguntar, qué medir y qué reportar cuando algo falle.</p>
@@ -83,6 +91,22 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </table>
 <div class="nota"><strong>Idea clave:</strong> la continuidad no la da un solo equipo, sino la cadena completa. El técnico verifica eslabón por eslabón: ¿la red está sana? ¿la planta arranca? ¿el banco DC tiene carga? ¿los rectificadores trabajan? Un solo eslabón débil tumba el sitio.</div>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_rectificador.jpg" width="640" height="889" alt="Módulo rectificador de riel DIN Mean Well DR-15-24 (montaje, etiqueta e interior)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Rectificador -48 V</h4>
+<p>El rectificador transforma la CA del sitio en la corriente continua de <strong>-48 V</strong> que alimenta los equipos de telecom, y mantiene en flotación al banco de baterías. Es modular y redundante (N+1): cada módulo aporta y, si uno falla, los demás sostienen la carga — por eso un módulo en falla se reporta y se reemplaza según manual, sin tumbar el servicio. En la ronda: voltaje de flotación (típico -53,5 a -54,5 V, según fabricante), corriente por módulo y alarmas. La foto muestra un módulo AC/DC de riel DIN; en los bastidores se montan varios en paralelo con su controlador.</p>
+<p class="credito">Foto: Dmitry G — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_baterias.jpg" width="640" height="480" alt="Sala de baterías: vasos estacionarios en bastidores">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Banco de baterías -48 V</h4>
+<p>Es el último respaldo: cuando fallan red y planta, sigue alimentando los equipos de telecom durante horas (diseño típico 4–8 h). En los sistemas -48 V se usan vasos estacionarios de plomo-ácido —como los de la foto— o litio en instalaciones nuevas, conectados en serie-paralelo para lograr la capacidad diseñada. En la ronda: voltaje del banco, temperatura, aspecto de cada vaso (sin deformaciones, sulfato ni fugas), apriete de puentes y limpieza. La capacidad real solo se comprueba con descarga controlada (prueba anual).</p>
+<p class="credito">Foto: Marco d'Itri — Wikimedia Commons (CC BY-SA 2.0).</p>
+</div>
+</div>
 <h2>2. El cuadro de fuerza (tablero principal de distribución)</h2>
 <p>El <strong>cuadro de fuerza</strong> es el gabinete donde llega la energía ya transformada (480/208 V) y desde donde se reparte a cada circuito del sitio: rectificadores, climatización, luces, tomas de fuerza y equipos auxiliares. Es el punto donde "todo se ve y todo se puede cortar" — por eso es también el más vigilado.</p>
 <figure>
@@ -102,6 +126,30 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Puesta a tierra:</strong> barra del gabinete conectada a la malla del sitio. Nunca se retira ni se desvía.</li>
 <li><strong>Rotulado:</strong> cada breaker y cada cable identificados (L1·L2·L3·N·T). Sin rótulos no se interviene.</li>
 </ul>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_termomagnetico.jpg" width="640" height="853" alt="Interruptor termomagnético de caja moldeada (detalle, 630 A)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Interruptor termomagnético (breaker)</h4>
+<p>Combina dos protecciones en un solo aparato: el disparo <strong>térmico</strong> (retardado, contra sobrecargas) y el <strong>magnético</strong> (instantáneo, contra cortocircuito). En caja moldeada —como el de la foto— se usa como cabecera de cuadros grandes; los modulares de riel DIN (C6, C16, C32…) cubren los circuitos pequeños. Datos de campo: lea su calibración y curva (ej.: C16 = 16 A, curva C), confirme que la palanca quede firme en su posición y <strong>jamás rearme a ciegas</strong>: primero se investiga la causa (sobrecarga aguas abajo, cortocircuito, equipo en falla). Un breaker que dispara «porque sí» está avisando algo.</p>
+<p class="credito">Foto: Balurbala — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_medidor.jpg" width="640" height="445" alt="Medidores de energía electrónicos modernos">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Medidor de energía</h4>
+<p>Es el contador del sitio: registra la energía consumida (kWh) y, en versiones trifásicas, también voltaje y corriente por fase. En la ronda se leen sus valores y se comparan con la línea base: un salto de consumo en horas no productivas o un desbalance entre fases delatan problemas antes que cualquier alarma. Revise además que el display no marque error y que el precinto o sello esté intacto. El medidor de la empresa eléctrica <strong>nunca se interviene</strong> sin autorización: se lee y se reporta.</p>
+<p class="credito">Foto: Mamlik — Wikimedia Commons (CC0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_tierra.jpg" width="640" height="701" alt="Cable de tierra con abrazadera a varilla de puesta a tierra">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Puesta a tierra</h4>
+<p>Es la red de seguridad del sistema: da un camino de baja resistencia para fallas y descargas, y es la base de pararrayos, neutro y malla del sitio. Se compone de electrodos (varillas, pozo o malla), conductor de unión y la barra de tierra del cuadro. En inspección: uniones firmes, sin corrosión ni cable suelto, y que nadie use la barra para «colgar» equipos. Su valor se mide con <strong>telurómetro</strong> (típicamente unos pocos ohmios, según diseño): esa medición es de instrumentista, no se improvisa.</p>
+<p class="credito">Foto: autor no indicado — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h3>Cómo se inspecciona (sin abrir)</h3>
 <ul>
 <li><strong>Termografía:</strong> apunte la cámara a breakers y barras desde fuera; una diferencia notable de temperatura entre fases delata apriete flojo o contacto desgastado.</li>
@@ -129,6 +177,46 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Tanque y línea de combustible:</strong> con válvula de corte; revise niveles y fugas.</li>
 <li><strong>Radiador, escape y ventilación:</strong> expulsan el calor; nunca obstruya rejillas ni salidas.</li>
 </ul>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_motor.jpg" width="640" height="707" alt="Motor diésel Caterpillar C18">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Motor diésel</h4>
+<p>Es el corazón del grupo electrógeno: un diésel gobernado a 1.500/1.800 rpm (según 50/60 Hz) con sus sistemas de combustible, lubricación, refrigeración y admisión. Su peor enemigo no es el uso, es el desuso: un motor que nunca se ejercita acumula humedad, combustible viciado y sellos secos. En la ronda revise: nivel de aceite y refrigerante, fugas, mangueras y correas, precalentador activo y horómetro. Todo trabajo sobre el motor se hace con el equipo <strong>bloqueado (LOTO) y frío</strong> — nunca con el grupo en marcha.</p>
+<p class="credito">Foto: Homoatrox — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_alternador.jpg" width="640" height="480" alt="Núcleo del estator de un generador (láminas y ranuras de ventilación)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Alternador</h4>
+<p>Es el generador eléctrico propiamente dicho: el motor lo hace girar y él convierte ese giro en corriente alterna estable (60 Hz; típicamente 480/208 V trifásico). Dentro lleva <strong>rotor</strong> (gira, con su excitación) y <strong>estator</strong> (bobinas fijas —como las láminas de la foto— donde se induce la tensión); su regulación se ajusta desde el controlador o el AVR. En campo se vigilan: voltaje y frecuencia en los instrumentos, ruido de rodamientos, temperatura y limpieza de las rejillas de ventilación (el polvo acumulado calienta el bobinado). No se abre ni se mide aislamiento sin procedimiento y megóhmetro.</p>
+<p class="credito">Foto: Wtshymanski — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_controlador.jpg" width="640" height="427" alt="Panel de control de un grupo Caterpillar (pantalla, botones y alarmas)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Controlador del grupo</h4>
+<p>Es el «cerebro» del grupo: ordena arrancar, vigila voltaje, frecuencia, presión de aceite y temperatura, muestra el estado en pantalla y ejecuta el paro por falla (como el panel EMCP de la foto). En él se leen el horómetro y las alarmas históricas — dos fuentes de oro para el técnico — y se confirma que el modo esté en <strong>AUTO</strong> (obligatorio en operación normal). Si la planta «no arranca», revise primero el controlador: una falla no despejada o un selector en MANUAL explican la mitad de los casos. No modifique parámetros ni calibraciones: se lee, se reporta y se sigue el procedimiento.</p>
+<p class="credito">Foto: FBI — dominio público (Wikimedia Commons).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_bateria_arranque.jpg" width="640" height="538" alt="Batería de arranque de plomo-ácido (Rombat Tundra EFB)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Batería de arranque</h4>
+<p>Batería de plomo-ácido de 12 o 24 V que entrega la corriente de arranque del motor (típicamente 70–150 Ah). Es pequeña pero crítica: sin ella el grupo no puede arrancar solo cuando cae la red, aunque todo lo demás esté perfecto. En la ronda: bornes limpios y apretados (el sulfato blanco es contacto malo y calor), nivel si es de vasos abiertos, voltaje en reposo (≈12,6 V una batería sana cargada) y cargador de flotación operando. Si en la prueba el motor gira lento, sospeche de la batería antes que del motor.</p>
+<p class="credito">Foto: Rombat france — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_tta.jpg" width="640" height="480" alt="Tablero de transferencia automática Cummins Onan (abierto)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — TTA / ATS — transferencia automática</h4>
+<p>El Tablero de Transferencia Automática (TTA/ATS) es el «árbitro» de la energía: vigila la red comercial y, cuando falta, ordena arrancar el generador; cuando la planta estabiliza (3–5 s), conmuta las cargas a ella; y al volver la red, devuelve las cargas y detiene la planta con enfriamiento. Sus ajustes de tiempo (retardo de transferencia y de retorno) evitan conmutaciones en falso. En la ronda se observa su estado (en red / en planta / falla), que no haya zumbido anormal y que los contactores cierren sin chisporroteo. Toda maniobra manual solo con autorización y procedimiento.</p>
+<p class="credito">Foto: StcudorPrewoP — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h3>Secuencia de transferencia (lo que debe observar)</h3>
 <ol>
 <li>Cae la red → el TTA lo detecta (segundos).</li>
@@ -174,6 +262,38 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Cuadro de baja tensión:</strong> recibe la salida del transformador y la entrega al cuadro de fuerza del sitio.</li>
 <li><strong>Puesta a tierra:</strong> malla propia de la subestación; es la base de todas las protecciones.</li>
 </ul>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_seccionador.jpg" width="640" height="853" alt="Seccionador de media tensión en poste (Rovigo)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Seccionador de media tensión</h4>
+<p>Interruptor de aislamiento <strong>visible</strong>: sus cuchillas se abren para dejar una sección sin tensión y a la vista, pero <strong>no cortan carga</strong> — se accionan con el circuito ya interrumpido por el interruptor. En postes de media tensión se opera con pértiga. En campo: verifique que la posición (abierto/cerrado) coincida con el reporte, ausencia de daños o puntos calientes en cuchillas y bloqueo durante el mantenimiento. Jamás se opera un seccionador de MT que pueda estar bajo carga: el arco resultante quema al operador y al equipo.</p>
+<p class="credito">Foto: Threecharlie — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_interruptor_mt.jpg" width="640" height="853" alt="Celdas de media tensión en fila">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Interruptor de MT y celdas</h4>
+<p>A diferencia del seccionador, el interruptor (breaker de MT) <strong>sí corta carga y fallas</strong>: dentro de las celdas —como las de la foto— conviven el interruptor, los transformadores de medida (CT/PT) y los relés de protección que ordenan su disparo ante sobrecorriente o falla a tierra. En la ronda se revisa desde fuera: instrumentos, lámparas de estado, ausencia de ruidos u olores anormales en las celdas y puertas cerradas con bloqueo. La operación y el rearme tras un disparo son de personal calificado: el técnico reporta, no manipula.</p>
+<p class="credito">Foto: Zen 38 — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_pararrayos.jpg" width="640" height="480" alt="Pararrayos de protección de llegada de línea (Pont-l'Abbé)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Pararrayos (SPD)</h4>
+<p>Los pararrayos son las «válvulas» de las sobretensiones: en la llegada de la línea (como en la foto) derivan a tierra los impulsos atmosféricos y de maniobra antes de que dañen transformador y equipos. Tras una descarga fuerte pueden quedar dañados sin señal aparente — por eso se inspeccionan: carcasa sin rajaduras, conexión a tierra firme y contador de descargas, si lo tiene. Nunca se retira un pararrayos en servicio; su reemplazo exige corte, permiso y procedimiento. Un pararrayos quemado o desconectado deja a la subestación sin su primera línea de defensa.</p>
+<p class="credito">Foto: PtiBzh — Wikimedia Commons (CC0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_transformador.jpg" width="640" height="813" alt="Transformador de distribución trifásico en poste">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Transformador</h4>
+<p>Es el equipo que «traduce» la energía: baja la media tensión (13,8 kV típico) a 480/208 V para todo el sitio. Puede ser de poste —como el de la foto— o de patio/sala, en aceite o seco. En la ronda: vigile temperatura (indicador), ruido uniforme (un zumbido constante es normal; chasquidos no), fugas y nivel de aceite, y el área despejada y ventilada a su alrededor. Su aceite se analiza periódicamente en laboratorio. No se trabaja en su interior: cualquier sospecha se reporta y se aísla con procedimiento.</p>
+<p class="credito">Foto: Gengiskanhg — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h3>Qué puede (y qué no) hacer el técnico</h3>
 <ul>
 <li><strong>Sí:</strong> inspección visual y termográfica desde fuera, lectura de instrumentos y relés, reporte de ruidos, olores, fugas y temperaturas anormales.</li>
@@ -244,6 +364,20 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <tr><td>generador_diesel.jpg</td><td>Cantons-de-l'Est — Wikimedia Commons</td><td>CC0</td></tr>
 <tr><td>cuadro_abierto.jpg</td><td>Dmitry G — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
 <tr><td>subestacion_patio.jpg</td><td>Rsparks3 — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>anexo_termomagnetico.jpg</td><td>Balurbala — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_medidor.jpg</td><td>Mamlik — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>anexo_tierra.jpg</td><td>autor no indicado — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_motor.jpg</td><td>Homoatrox — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_alternador.jpg</td><td>Wtshymanski — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_controlador.jpg</td><td>FBI — Wikimedia Commons</td><td>Dominio público</td></tr>
+<tr><td>anexo_bateria_arranque.jpg</td><td>Rombat france — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>anexo_tta.jpg</td><td>StcudorPrewoP — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_seccionador.jpg</td><td>Threecharlie — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_interruptor_mt.jpg</td><td>Zen 38 — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_pararrayos.jpg</td><td>PtiBzh — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>anexo_transformador.jpg</td><td>Gengiskanhg — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_rectificador.jpg</td><td>Dmitry G — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_baterias.jpg</td><td>Marco d'Itri — Wikimedia Commons</td><td>CC BY-SA 2.0</td></tr>
 </table>
 </main>
 <footer class="footer">

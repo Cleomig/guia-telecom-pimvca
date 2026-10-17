@@ -29,6 +29,13 @@ th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
 td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 .alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 figure { margin: 18px auto; text-align: center; }
@@ -84,6 +91,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Atenuadores:</strong> si el enlace es muy corto, evitan saturar el receptor.</li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_antena_micro.jpg" width="640" height="425" alt="Antenas parabólicas de microondas en torre">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Antena y ODU (unidad de radio)</h4>
+<p>La parabólica concentra la señal en un haz estrecho y la ODU —montada junto al plato— hace la conversión radio↔banda base. La alineación es crítica: errores de menos de un grado degradan la potencia recibida; por eso, una vez alineada, la antena se fija y no se «toca» sin instrumento. En la ronda: herrajes y tornillos firmes (vibración + viento = desalineación), estado de radomos y polos, sin refuerzos improvisados, y el conector de la ODU protegido y sellado — humedad en el conector es falla garantizada.</p>
+<p class="credito">Foto: Bidgee — Wikimedia Commons (CC BY-SA 2.5 au).</p>
+</div>
+</div>
 <h2>3. Bandas de trabajo</h2>
 <table>
 <tr><th>Banda (GHz)</th><th>Distancia típica</th><th>Características</th></tr>
@@ -147,6 +162,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li>Fotos antes/después y estado del ticket.</li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_analizador.jpg" width="640" height="480" alt="Analizador de espectro HP 8560E (30 Hz-2,9 GHz)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Analizador de espectro</h4>
+<p>Es el «ojo» que ve el espectro: muestra potencia vs. frecuencia y permite ver el canal del enlace, interferencias y ruido. En campo se usa para verificar que la portadora está y con la potencia esperada, detectar interferencias (otro equipo donde no debe) y confirmar niveles tras cambios o alineaciones. Reglas: atenuación interna y referencias bien configuradas (un analizador mal puesto miente), <strong>nunca</strong> conectar a un transmisor sin atenuador calculado y tratar sus conectores RF con el mismo cuidado que los ópticos.</p>
+<p class="credito">Foto: Thomas Schanz — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
 <h2>9. Errores comunes</h2>
 <ul>
 <li>Alinear "por parejo" en vez de buscar el máximo de nivel con el sintonizador.</li>
@@ -167,6 +190,8 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <table>
 <tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
 <tr><td>micro_torre.jpg (torre con parabólicas)</td><td>Pelajanela — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>anexo_antena_micro.jpg</td><td>Bidgee — Wikimedia Commons</td><td>CC BY-SA 2.5 au</td></tr>
+<tr><td>anexo_analizador.jpg</td><td>Thomas Schanz — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
 <tr><td>fresnel_zonas.png</td><td>Popocatomar — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
 <tr><td>fresnel_roto.png</td><td>Konrad Roeder — Wikimedia Commons</td><td>CC BY-SA 2.5</td></tr>
 </table>

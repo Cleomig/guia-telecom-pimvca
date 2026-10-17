@@ -27,6 +27,13 @@ th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
 td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .prompt-box, blockquote { background: #e8f5e9; border: 1px solid #66bb6a; border-left: 6px solid #2e7d32; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 figure { margin: 18px auto; text-align: center; }
 figure img, img { max-width: 100%; height: auto; border-radius: 6px; }
@@ -128,6 +135,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </div>
 
 <div class="section">
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_refugio_radio.jpg" width="640" height="480" alt="Refugio técnico de radiobase con torre y antenas">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Refugio de radiobase</h4>
+<p>El refugio (shelter) es la «casa» de los equipos en una radiobase: dentro viven rectificadores, banco de baterías, radios y el monitoreo; fuera quedan la torre y sus antenas. Su salud decide la del sitio: cerrado, ventilado o climatizado, baterías en bandejas seguras, cableado ordenado y sin humedad — la humedad es el enemigo silencioso de rectificadores y conectores. El acceso es controlado: se entra con permiso y acompañamiento. En cada visita observe temperatura interior, alarmas del monitoreo remoto y estado de cerraduras.</p>
+<p class="credito">Foto: SimplySacha — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
 <h2>1.5 Subestaciones Eléctricas</h2>
 <p><strong>Definición:</strong> instalación que transforma, distribuye y protege la energía eléctrica. Agrupa transformadores, interruptores, seccionadores, barras y equipos de protección.</p>
 <h3>Componentes principales:</h3>
@@ -142,6 +157,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li><strong>Esquemas de barra:</strong> simple, doble, interruptor y medio (mayor confiabilidad, mayor costo).</li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_subestacion_site.jpg" width="640" height="427" alt="Subestación de distribución (caseta) en zona rural">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Subestación de distribución</h4>
+<p>Es el punto donde la media tensión del operador se convierte en baja tensión para el sitio: contiene el seccionamiento, el interruptor, el transformador y las protecciones (a veces también la medición). Es zona restringida: el personal autorizado maniobra; los demás solo inspeccionan visualmente y reportan. En visitas: ruidos anormales, olores, fugas de aceite, temperaturas y estado de la ventilación son los primeros indicadores. Toda intervención exige procedimiento, permiso y EPP específico.</p>
+<p class="credito">Foto: Ziko — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
 <h2>1.6 Plantas de Emergencia y TTA/ATS</h2>
 <ul>
 <li><strong>Planta de emergencia (moto-generador diésel):</strong> genera energía AC cuando falla la red comercial.</li>
@@ -152,6 +175,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </ul></li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_planta_electrica.jpg" width="640" height="480" alt="Planta de emergencia diésel Caterpillar Olympian">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Planta de emergencia</h4>
+<p>El generador diésel —como el Caterpillar Olympian de la foto— es el respaldo de CA de la infraestructura: asume el sitio cuando la red falla, con autonomía limitada solo por su combustible y su mantenimiento. Incluye motor, alternador, controlador y transferencia (ver la guía eléctrica). Puntos de campo: prueba semanal de arranque y mensual con carga, niveles y fugas, batería de arranque sana, ventilación y escape despejados, y zona de combustible ordenada. Una planta que «siempre funciona» y nunca se prueba es una bomba de tiempo: el día que la red caiga de verdad es cuando se descubre si asume la carga.</p>
+<p class="credito">Foto: Gregsedits — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h2>1.7 Seguridad Eléctrica (NFPA 70E)</h2>
 <ul>
 <li><strong>LOTO (Lockout/Tagout):</strong> bloquear y etiquetar los interruptores de energía antes de trabajar; garantiza que nadie reenergice el equipo mientras se interviene.</li>
@@ -163,6 +194,14 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 </div>
 
 <div class="section">
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_loto_kit.jpg" width="640" height="427" alt="Estación de bloqueo LOTO: candados, tarjetas y pinzas">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Kit de bloqueo (LOTO)</h4>
+<p>El kit LOTO es lo que garantiza que nadie re-energice el equipo mientras se trabaja: candados personales (una llave por técnico), tarjetas de identificación, pinzas multiuso para encerrar interruptores y una estación organizada como la de la foto. Procedimiento: avisar, desconectar, <strong>bloquear y etiquetar</strong> cada fuente, verificar ausencia de tensión — solo entonces intervenir; al terminar, retira su bloqueo únicamente quien lo puso. El candado es personal e intransferible. Un kit incompleto es un candado que se improvisa mal.</p>
+<p class="credito">Foto: Henrysz — Wikimedia Commons (CC BY 4.0).</p>
+</div>
+</div>
 <h1>PARTE 2. PROMPT PROFESIONAL PARA ASISTENTES DE IA</h1>
 <p>Copia y usa este prompt cuando necesites apoyo técnico urgente en campo:</p>
 <div class="prompt-box">

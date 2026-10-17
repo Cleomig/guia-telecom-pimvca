@@ -29,6 +29,13 @@ th { background: #00695c; color: #fff; padding: 8px 6px; text-align: left; }
 td { border: 1px solid #ccc; padding: 7px 6px; }
 tr:nth-child(even) td { background: #f4f6f9; }
 .nota { background: #e3f2fd; border-left: 6px solid #1565c0; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
+.anexo { display: flex; gap: 16px; align-items: flex-start; background: #f5f8fa; border: 1px solid #cfd8dc; border-left: 6px solid #546e7a; border-radius: 8px; padding: 14px; margin: 18px 0; }
+.anexo img { width: 38%; max-width: 320px; height: auto; border-radius: 6px; border: 1px solid #cfd8dc; flex: 0 0 auto; }
+.anexo .ficha { flex: 1 1 auto; min-width: 0; }
+.anexo h4 { margin: 0 0 6px; color: #37474f; font-size: 1.02rem; }
+.anexo p { margin: 5px 0; font-size: .95rem; }
+.anexo .credito { font-size: .78rem; color: #607d8b; margin-top: 6px; }
+@media (max-width: 640px) { .anexo { flex-direction: column; } .anexo img { width: 100%; max-width: 100%; } }
 .alerta { background: #ffebee; border-left: 6px solid #c62828; padding: 12px 14px; border-radius: 6px; margin: 14px 0; }
 code { background: #eceff1; padding: 1px 5px; border-radius: 3px; color: #b71c1c; font-size: .92em; }
 figure { margin: 18px auto; text-align: center; }
@@ -125,6 +132,30 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <li>Herramientas aisladas y vivoscopio para derivaciones; nunca use el cuerpo como tierra.</li>
 </ul>
 
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_verificador.jpg" width="640" height="480" alt="Verificador de tensión bipolo (Benning Duspol)">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Verificador de tensión (bipolo)</h4>
+<p>Es el instrumento que decide si se trabaja o no: verifica la <strong>ausencia de tensión</strong> antes de tocar. El protocolo es siempre el mismo: probar en una fuente conocida → medir el punto → volver a probar en la fuente conocida. Modelos como el Duspol indican 12–690 V con luz y sonido y declaran su categoría (CAT III/IV según el caso). Reglas: nunca «probar» con el dedo o destornilladores caseros; revisar puntas, cables y batería antes de cada uso; y retirar de servicio el verificador golpeado. Su categoría debe igualar o superar la del entorno.</p>
+<p class="credito">Foto: Rotkaeppchen68 — Wikimedia Commons (CC BY-SA 4.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_pertiga.jpg" width="640" height="630" alt="Liniero maniobrando con pértiga desde el canasto">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Pértiga de maniobra</h4>
+<p>La pértiga permite abrir seccionadores y maniobrar fusibles a distancia segura, manteniendo al operador lejos del punto caliente. En líneas energizadas se usa desde el canasto con protocolo completo: orden de trabajo, guantes, doble verificación y registro. Cuidados: tratarla como instrumento dieléctrico — inspeccionar antes de cada uso (sin rajaduras, humedad ni partes sueltas), limpiar con paño limpio y respetar su prueba dieléctrica periódica. Jamás improvise una maniobra con tubos o varillas no certificadas.</p>
+<p class="credito">Foto: Bidgee — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
+<div class="anexo">
+<img loading="lazy" decoding="async" src="imgs/anexo_herramientas_vde.jpg" width="640" height="347" alt="Destornilladores aislados VDE para trabajo eléctrico">
+<div class="ficha">
+<h4>📎 Anexo de equipo — Herramientas aisladas (VDE)</h4>
+<p>Destornilladores, alicates y llaves con aislamiento para 1.000 V protegen solo si su aislamiento está intacto: revise mangos sin cortes, puntas sin deformar y la marca VDE/EN 60900. Nunca sustituya una herramienta aislada con una común «envuelta en cinta»: eso no es aislamiento. Guárdelas separadas de las mecánicas y, tras un golpe fuerte o un cortocircuito, retírelas y reemplácelas — el daño puede ser interno. Regla de campo: en tableros, herramienta aislada siempre, aunque la ausencia de tensión ya esté verificada.</p>
+<p class="credito">Foto: Simon A. Eugster — Wikimedia Commons (CC BY-SA 3.0).</p>
+</div>
+</div>
 <h2>6. Riesgos específicos en radiobases</h2>
 <table>
 <tr><th>Riesgo</th><th>Control recomendado</th></tr>
@@ -159,6 +190,9 @@ hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
 <table>
 <tr><th>Imagen</th><th>Autor</th><th>Licencia</th></tr>
 <tr><td>peligro_electrico.png</td><td>Bigguy637 — Wikimedia Commons</td><td>CC0</td></tr>
+<tr><td>anexo_verificador.jpg</td><td>Rotkaeppchen68 — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
+<tr><td>anexo_pertiga.jpg</td><td>Bidgee — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
+<tr><td>anexo_herramientas_vde.jpg</td><td>Simon A. Eugster — Wikimedia Commons</td><td>CC BY-SA 3.0</td></tr>
 <tr><td>peligro_arco.png (ISO 7010 W042)</td><td>Autor del símbolo — Wikimedia Commons</td><td>CC0</td></tr>
 <tr><td>loto_tablero.jpg</td><td>Wtshymanski — Wikimedia Commons</td><td>CC BY-SA 4.0</td></tr>
 <tr><td>guantes_aislantes.jpg</td><td>Thomei08 — Wikimedia Commons</td><td>Dominio público</td></tr>
